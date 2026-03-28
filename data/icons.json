@@ -1,0 +1,2179 @@
+{
+  "props": {
+    "ascent": 1045,
+    "descent": -275,
+    "em": 1024,
+    "encoding": "UnicodeFull",
+    "family": "MetFont",
+    "fontname": "MetFont-Regular",
+    "fullname": "MetFont Regular",
+    "style": "Regular",
+    "version": "001.000"
+  },
+  "glyphs": {
+    "0xE000": {
+      "src": "color/svg/E000.svg",
+      "width": 1024
+    },
+    "0xE001": {
+      "src": "color/svg/E001.svg",
+      "width": 1024
+    },
+    "0xE002": {
+      "src": "color/svg/E002.svg",
+      "width": 1024
+    },
+    "0xE003": {
+      "src": "color/svg/E003.svg",
+      "width": 1024
+    },
+    "0xE004": {
+      "src": "color/svg/E004.svg",
+      "width": 1024
+    },
+    "0xE005": {
+      "src": "color/svg/E005.svg",
+      "width": 1024
+    },
+    "0xE006": {
+      "src": "color/svg/E006.svg",
+      "width": 1024
+    },
+    "0xE007": {
+      "src": "color/svg/E007.svg",
+      "width": 1024
+    },
+    "0xE008": {
+      "src": "color/svg/E008.svg",
+      "width": 1024
+    },
+    "0xE009": {
+      "src": "color/svg/E009.svg",
+      "width": 1024
+    },
+    "0xE00A": {
+      "src": "color/svg/E00A.svg",
+      "width": 1024
+    },
+    "0xE00B": {
+      "src": "color/svg/E00B.svg",
+      "width": 1024
+    },
+    "0xE00C": {
+      "src": "color/svg/E00C.svg",
+      "width": 1024
+    },
+    "0xE00D": {
+      "src": "color/svg/E00D.svg",
+      "width": 1024
+    },
+    "0xE00E": {
+      "src": "color/svg/E00E.svg",
+      "width": 1024
+    },
+    "0xE00F": {
+      "src": "color/svg/E00F.svg",
+      "width": 1024
+    },
+    "0xE010": {
+      "src": "color/svg/E010.svg",
+      "width": 1024
+    },
+    "0xE011": {
+      "src": "color/svg/E011.svg",
+      "width": 1024
+    },
+    "0xE012": {
+      "src": "color/svg/E012.svg",
+      "width": 1024
+    },
+    "0xE013": {
+      "src": "color/svg/E013.svg",
+      "width": 1024
+    },
+    "0xE014": {
+      "src": "color/svg/E014.svg",
+      "width": 1024
+    },
+    "0xE015": {
+      "src": "color/svg/E015.svg",
+      "width": 1024
+    },
+    "0xE016": {
+      "src": "color/svg/E016.svg",
+      "width": 1024
+    },
+    "0xE017": {
+      "src": "color/svg/E017.svg",
+      "width": 1024
+    },
+    "0xE018": {
+      "src": "color/svg/E018.svg",
+      "width": 1024
+    },
+    "0xE019": {
+      "src": "color/svg/E019.svg",
+      "width": 1024
+    },
+    "0xE01A": {
+      "src": "color/svg/E01A.svg",
+      "width": 1024
+    },
+    "0xE01B": {
+      "src": "color/svg/E01B.svg",
+      "width": 1024
+    },
+    "0xE01C": {
+      "src": "color/svg/E01C.svg",
+      "width": 1024
+    },
+    "0xE01D": {
+      "src": "color/svg/E01D.svg",
+      "width": 1024
+    },
+    "0xE01E": {
+      "src": "color/svg/E01E.svg",
+      "width": 1024
+    },
+    "0xE01F": {
+      "src": "color/svg/E01F.svg",
+      "width": 1024
+    },
+    "0xE020": {
+      "src": "color/svg/E020.svg",
+      "width": 1024
+    },
+    "0xE021": {
+      "src": "color/svg/E021.svg",
+      "width": 1024
+    },
+    "0xE022": {
+      "src": "color/svg/E022.svg",
+      "width": 1024
+    },
+    "0xE023": {
+      "src": "color/svg/E023.svg",
+      "width": 1024
+    },
+    "0xE024": {
+      "src": "color/svg/E024.svg",
+      "width": 1024
+    },
+    "0xE025": {
+      "src": "color/svg/E025.svg",
+      "width": 1024
+    },
+    "0xE026": {
+      "src": "color/svg/E026.svg",
+      "width": 1024
+    },
+    "0xE027": {
+      "src": "color/svg/E027.svg",
+      "width": 1024
+    },
+    "0xE028": {
+      "src": "color/svg/E028.svg",
+      "width": 1024
+    },
+    "0xE029": {
+      "src": "color/svg/E029.svg",
+      "width": 1024
+    },
+    "0xE02A": {
+      "src": "color/svg/E02A.svg",
+      "width": 1024
+    },
+    "0xE02B": {
+      "src": "color/svg/E02B.svg",
+      "width": 1024
+    },
+    "0xE02C": {
+      "src": "color/svg/E02C.svg",
+      "width": 1024
+    },
+    "0xE02D": {
+      "src": "color/svg/E02D.svg",
+      "width": 1024
+    },
+    "0xE02E": {
+      "src": "color/svg/E02E.svg",
+      "width": 1024
+    },
+    "0xE02F": {
+      "src": "color/svg/E02F.svg",
+      "width": 1024
+    },
+    "0xE030": {
+      "src": "color/svg/E030.svg",
+      "width": 1024
+    },
+    "0xE031": {
+      "src": "color/svg/E031.svg",
+      "width": 1024
+    },
+    "0xE100": {
+      "src": "color/svg/E100.svg",
+      "width": 1024
+    },
+    "0xE101": {
+      "src": "color/svg/E101.svg",
+      "width": 1024
+    },
+    "0xE102": {
+      "src": "color/svg/E102.svg",
+      "width": 1024
+    },
+    "0xE103": {
+      "src": "color/svg/E103.svg",
+      "width": 1024
+    },
+    "0xE104": {
+      "src": "color/svg/E104.svg",
+      "width": 1024
+    },
+    "0xE105": {
+      "src": "color/svg/E105.svg",
+      "width": 1024
+    },
+    "0xE106": {
+      "src": "color/svg/E106.svg",
+      "width": 1024
+    },
+    "0xE107": {
+      "src": "color/svg/E107.svg",
+      "width": 1024
+    },
+    "0xE108": {
+      "src": "color/svg/E108.svg",
+      "width": 1024
+    },
+    "0xE109": {
+      "src": "color/svg/E109.svg",
+      "width": 1024
+    },
+    "0xE10A": {
+      "src": "color/svg/E10A.svg",
+      "width": 1024
+    },
+    "0xE10B": {
+      "src": "color/svg/E10B.svg",
+      "width": 1024
+    },
+    "0xE10C": {
+      "src": "color/svg/E10C.svg",
+      "width": 1024
+    },
+    "0xE10D": {
+      "src": "color/svg/E10D.svg",
+      "width": 1024
+    },
+    "0xE10E": {
+      "src": "color/svg/E10E.svg",
+      "width": 1024
+    },
+    "0xE10F": {
+      "src": "color/svg/E10F.svg",
+      "width": 1024
+    },
+    "0xE110": {
+      "src": "color/svg/E110.svg",
+      "width": 1024
+    },
+    "0xE111": {
+      "src": "color/svg/E111.svg",
+      "width": 1024
+    },
+    "0xE112": {
+      "src": "color/svg/E112.svg",
+      "width": 1024
+    },
+    "0xE113": {
+      "src": "color/svg/E113.svg",
+      "width": 1024
+    },
+    "0xE114": {
+      "src": "color/svg/E114.svg",
+      "width": 1024
+    },
+    "0xE115": {
+      "src": "color/svg/E115.svg",
+      "width": 1024
+    },
+    "0xE116": {
+      "src": "color/svg/E116.svg",
+      "width": 1024
+    },
+    "0xE117": {
+      "src": "color/svg/E117.svg",
+      "width": 1024
+    },
+    "0xE118": {
+      "src": "color/svg/E118.svg",
+      "width": 1024
+    },
+    "0xE119": {
+      "src": "color/svg/E119.svg",
+      "width": 1024
+    },
+    "0xE11A": {
+      "src": "color/svg/E11A.svg",
+      "width": 1024
+    },
+    "0xE11B": {
+      "src": "color/svg/E11B.svg",
+      "width": 1024
+    },
+    "0xE11C": {
+      "src": "color/svg/E11C.svg",
+      "width": 1024
+    },
+    "0xE11D": {
+      "src": "color/svg/E11D.svg",
+      "width": 1024
+    },
+    "0xE11E": {
+      "src": "color/svg/E11E.svg",
+      "width": 1024
+    },
+    "0xE11F": {
+      "src": "color/svg/E11F.svg",
+      "width": 1024
+    },
+    "0xE120": {
+      "src": "color/svg/E120.svg",
+      "width": 1024
+    },
+    "0xE121": {
+      "src": "color/svg/E121.svg",
+      "width": 1024
+    },
+    "0xE122": {
+      "src": "color/svg/E122.svg",
+      "width": 1024
+    },
+    "0xE123": {
+      "src": "color/svg/E123.svg",
+      "width": 1024
+    },
+    "0xE124": {
+      "src": "color/svg/E124.svg",
+      "width": 1024
+    },
+    "0xE125": {
+      "src": "color/svg/E125.svg",
+      "width": 1024
+    },
+    "0xE126": {
+      "src": "color/svg/E126.svg",
+      "width": 1024
+    },
+    "0xE127": {
+      "src": "color/svg/E127.svg",
+      "width": 1024
+    },
+    "0xE128": {
+      "src": "color/svg/E128.svg",
+      "width": 1024
+    },
+    "0xE129": {
+      "src": "color/svg/E129.svg",
+      "width": 1024
+    },
+    "0xE12A": {
+      "src": "color/svg/E12A.svg",
+      "width": 1024
+    },
+    "0xE12B": {
+      "src": "color/svg/E12B.svg",
+      "width": 1024
+    },
+    "0xE12C": {
+      "src": "color/svg/E12C.svg",
+      "width": 1024
+    },
+    "0xE12D": {
+      "src": "color/svg/E12D.svg",
+      "width": 1024
+    },
+    "0xE12E": {
+      "src": "color/svg/E12E.svg",
+      "width": 1024
+    },
+    "0xE12F": {
+      "src": "color/svg/E12F.svg",
+      "width": 1024
+    },
+    "0xE130": {
+      "src": "color/svg/E130.svg",
+      "width": 1024
+    },
+    "0xE131": {
+      "src": "color/svg/E131.svg",
+      "width": 1024
+    },
+    "0xE132": {
+      "src": "color/svg/E132.svg",
+      "width": 1024
+    },
+    "0xE133": {
+      "src": "color/svg/E133.svg",
+      "width": 1024
+    },
+    "0xE134": {
+      "src": "color/svg/E134.svg",
+      "width": 1024
+    },
+    "0xE135": {
+      "src": "color/svg/E135.svg",
+      "width": 1024
+    },
+    "0xE136": {
+      "src": "color/svg/E136.svg",
+      "width": 1024
+    },
+    "0xE137": {
+      "src": "color/svg/E137.svg",
+      "width": 1024
+    },
+    "0xE138": {
+      "src": "color/svg/E138.svg",
+      "width": 1024
+    },
+    "0xE139": {
+      "src": "color/svg/E139.svg",
+      "width": 1024
+    },
+    "0xE13A": {
+      "src": "color/svg/E13A.svg",
+      "width": 1024
+    },
+    "0xE13B": {
+      "src": "color/svg/E13B.svg",
+      "width": 1024
+    },
+    "0xE13C": {
+      "src": "color/svg/E13C.svg",
+      "width": 1024
+    },
+    "0xE13D": {
+      "src": "color/svg/E13D.svg",
+      "width": 1024
+    },
+    "0xE13E": {
+      "src": "color/svg/E13E.svg",
+      "width": 1024
+    },
+    "0xE13F": {
+      "src": "color/svg/E13F.svg",
+      "width": 1024
+    },
+    "0xE140": {
+      "src": "color/svg/E140.svg",
+      "width": 1024
+    },
+    "0xE141": {
+      "src": "color/svg/E141.svg",
+      "width": 1024
+    },
+    "0xE142": {
+      "src": "color/svg/E142.svg",
+      "width": 1024
+    },
+    "0xE143": {
+      "src": "color/svg/E143.svg",
+      "width": 1024
+    },
+    "0xE144": {
+      "src": "color/svg/E144.svg",
+      "width": 1024
+    },
+    "0xE145": {
+      "src": "color/svg/E145.svg",
+      "width": 1024
+    },
+    "0xE146": {
+      "src": "color/svg/E146.svg",
+      "width": 1024
+    },
+    "0xE147": {
+      "src": "color/svg/E147.svg",
+      "width": 1024
+    },
+    "0xE148": {
+      "src": "color/svg/E148.svg",
+      "width": 1024
+    },
+    "0xE149": {
+      "src": "color/svg/E149.svg",
+      "width": 1024
+    },
+    "0xE14A": {
+      "src": "color/svg/E14A.svg",
+      "width": 1024
+    },
+    "0xE14B": {
+      "src": "color/svg/E14B.svg",
+      "width": 1024
+    },
+    "0xE14C": {
+      "src": "color/svg/E14C.svg",
+      "width": 1024
+    },
+    "0xE14D": {
+      "src": "color/svg/E14D.svg",
+      "width": 1024
+    },
+    "0xE14E": {
+      "src": "color/svg/E14E.svg",
+      "width": 1024
+    },
+    "0xE14F": {
+      "src": "color/svg/E14F.svg",
+      "width": 1024
+    },
+    "0xE150": {
+      "src": "color/svg/E150.svg",
+      "width": 1024
+    },
+    "0xE151": {
+      "src": "color/svg/E151.svg",
+      "width": 1024
+    },
+    "0xE152": {
+      "src": "color/svg/E152.svg",
+      "width": 1024
+    },
+    "0xE153": {
+      "src": "color/svg/E153.svg",
+      "width": 1024
+    },
+    "0xE154": {
+      "src": "color/svg/E154.svg",
+      "width": 1024
+    },
+    "0xE155": {
+      "src": "color/svg/E155.svg",
+      "width": 1024
+    },
+    "0xE156": {
+      "src": "color/svg/E156.svg",
+      "width": 1024
+    },
+    "0xE157": {
+      "src": "color/svg/E157.svg",
+      "width": 1024
+    },
+    "0xE158": {
+      "src": "color/svg/E158.svg",
+      "width": 1024
+    },
+    "0xE159": {
+      "src": "color/svg/E159.svg",
+      "width": 1024
+    },
+    "0xE15A": {
+      "src": "color/svg/E15A.svg",
+      "width": 1024
+    },
+    "0xE15B": {
+      "src": "color/svg/E15B.svg",
+      "width": 1024
+    },
+    "0xE15C": {
+      "src": "color/svg/E15C.svg",
+      "width": 1024
+    },
+    "0xE15D": {
+      "src": "color/svg/E15D.svg",
+      "width": 1024
+    },
+    "0xE15E": {
+      "src": "color/svg/E15E.svg",
+      "width": 1024
+    },
+    "0xE15F": {
+      "src": "color/svg/E15F.svg",
+      "width": 1024
+    },
+    "0xE160": {
+      "src": "color/svg/E160.svg",
+      "width": 1024
+    },
+    "0xE161": {
+      "src": "color/svg/E161.svg",
+      "width": 1024
+    },
+    "0xE162": {
+      "src": "color/svg/E162.svg",
+      "width": 1024
+    },
+    "0xE163": {
+      "src": "color/svg/E163.svg",
+      "width": 1024
+    },
+    "0xE164": {
+      "src": "color/svg/E164.svg",
+      "width": 1024
+    },
+    "0xE165": {
+      "src": "color/svg/E165.svg",
+      "width": 1024
+    },
+    "0xE166": {
+      "src": "color/svg/E166.svg",
+      "width": 1024
+    },
+    "0xE167": {
+      "src": "color/svg/E167.svg",
+      "width": 1024
+    },
+    "0xE168": {
+      "src": "color/svg/E168.svg",
+      "width": 1024
+    },
+    "0xE169": {
+      "src": "color/svg/E169.svg",
+      "width": 1024
+    },
+    "0xE16A": {
+      "src": "color/svg/E16A.svg",
+      "width": 1024
+    },
+    "0xE16B": {
+      "src": "color/svg/E16B.svg",
+      "width": 1024
+    },
+    "0xE16C": {
+      "src": "color/svg/E16C.svg",
+      "width": 1024
+    },
+    "0xE16D": {
+      "src": "color/svg/E16D.svg",
+      "width": 1024
+    },
+    "0xE16E": {
+      "src": "color/svg/E16E.svg",
+      "width": 1024
+    },
+    "0xE16F": {
+      "src": "color/svg/E16F.svg",
+      "width": 1024
+    },
+    "0xE170": {
+      "src": "color/svg/E170.svg",
+      "width": 1024
+    },
+    "0xE171": {
+      "src": "color/svg/E171.svg",
+      "width": 1024
+    },
+    "0xE172": {
+      "src": "color/svg/E172.svg",
+      "width": 1024
+    },
+    "0xE173": {
+      "src": "color/svg/E173.svg",
+      "width": 1024
+    },
+    "0xE174": {
+      "src": "color/svg/E174.svg",
+      "width": 1024
+    },
+    "0xE175": {
+      "src": "color/svg/E175.svg",
+      "width": 1024
+    },
+    "0xE176": {
+      "src": "color/svg/E176.svg",
+      "width": 1024
+    },
+    "0xE177": {
+      "src": "color/svg/E177.svg",
+      "width": 1024
+    },
+    "0xE178": {
+      "src": "color/svg/E178.svg",
+      "width": 1024
+    },
+    "0xE179": {
+      "src": "color/svg/E179.svg",
+      "width": 1024
+    },
+    "0xE17A": {
+      "src": "color/svg/E17A.svg",
+      "width": 1024
+    },
+    "0xE17B": {
+      "src": "color/svg/E17B.svg",
+      "width": 1024
+    },
+    "0xE17C": {
+      "src": "color/svg/E17C.svg",
+      "width": 1024
+    },
+    "0xE17D": {
+      "src": "color/svg/E17D.svg",
+      "width": 1024
+    },
+    "0xE17E": {
+      "src": "color/svg/E17E.svg",
+      "width": 1024
+    },
+    "0xE17F": {
+      "src": "color/svg/E17F.svg",
+      "width": 1024
+    },
+    "0xE180": {
+      "src": "color/svg/E180.svg",
+      "width": 1024
+    },
+    "0xE181": {
+      "src": "color/svg/E181.svg",
+      "width": 1024
+    },
+    "0xE182": {
+      "src": "color/svg/E182.svg",
+      "width": 1024
+    },
+    "0xE183": {
+      "src": "color/svg/E183.svg",
+      "width": 1024
+    },
+    "0xE184": {
+      "src": "color/svg/E184.svg",
+      "width": 1024
+    },
+    "0xE185": {
+      "src": "color/svg/E185.svg",
+      "width": 1024
+    },
+    "0xE186": {
+      "src": "color/svg/E186.svg",
+      "width": 1024
+    },
+    "0xE187": {
+      "src": "color/svg/E187.svg",
+      "width": 1024
+    },
+    "0xE188": {
+      "src": "color/svg/E188.svg",
+      "width": 1024
+    },
+    "0xE189": {
+      "src": "color/svg/E189.svg",
+      "width": 1024
+    },
+    "0xE18A": {
+      "src": "color/svg/E18A.svg",
+      "width": 1024
+    },
+    "0xE18B": {
+      "src": "color/svg/E18B.svg",
+      "width": 1024
+    },
+    "0xE18C": {
+      "src": "color/svg/E18C.svg",
+      "width": 1024
+    },
+    "0xE18D": {
+      "src": "color/svg/E18D.svg",
+      "width": 1024
+    },
+    "0xE18E": {
+      "src": "color/svg/E18E.svg",
+      "width": 1024
+    },
+    "0xE18F": {
+      "src": "color/svg/E18F.svg",
+      "width": 1024
+    },
+    "0xE190": {
+      "src": "color/svg/E190.svg",
+      "width": 1024
+    },
+    "0xE191": {
+      "src": "color/svg/E191.svg",
+      "width": 1024
+    },
+    "0xE192": {
+      "src": "color/svg/E192.svg",
+      "width": 1024
+    },
+    "0xE193": {
+      "src": "color/svg/E193.svg",
+      "width": 1024
+    },
+    "0xE194": {
+      "src": "color/svg/E194.svg",
+      "width": 1024
+    },
+    "0xE195": {
+      "src": "color/svg/E195.svg",
+      "width": 1024
+    },
+    "0xE196": {
+      "src": "color/svg/E196.svg",
+      "width": 1024
+    },
+    "0xE197": {
+      "src": "color/svg/E197.svg",
+      "width": 1024
+    },
+    "0xE198": {
+      "src": "color/svg/E198.svg",
+      "width": 1024
+    },
+    "0xE199": {
+      "src": "color/svg/E199.svg",
+      "width": 1024
+    },
+    "0xE19A": {
+      "src": "color/svg/E19A.svg",
+      "width": 1024
+    },
+    "0xE19B": {
+      "src": "color/svg/E19B.svg",
+      "width": 1024
+    },
+    "0xE19C": {
+      "src": "color/svg/E19C.svg",
+      "width": 1024
+    },
+    "0xE19D": {
+      "src": "color/svg/E19D.svg",
+      "width": 1024
+    },
+    "0xE19E": {
+      "src": "color/svg/E19E.svg",
+      "width": 1024
+    },
+    "0xE19F": {
+      "src": "color/svg/E19F.svg",
+      "width": 1024
+    },
+    "0xE1A0": {
+      "src": "color/svg/E1A0.svg",
+      "width": 1024
+    },
+    "0xE1A1": {
+      "src": "color/svg/E1A1.svg",
+      "width": 1024
+    },
+    "0xE1A2": {
+      "src": "color/svg/E1A2.svg",
+      "width": 1024
+    },
+    "0xE1A3": {
+      "src": "color/svg/E1A3.svg",
+      "width": 1024
+    },
+    "0xE1A4": {
+      "src": "color/svg/E1A4.svg",
+      "width": 1024
+    },
+    "0xE1A5": {
+      "src": "color/svg/E1A5.svg",
+      "width": 1024
+    },
+    "0xE1A6": {
+      "src": "color/svg/E1A6.svg",
+      "width": 1024
+    },
+    "0xE1A7": {
+      "src": "color/svg/E1A7.svg",
+      "width": 1024
+    },
+    "0xE1A8": {
+      "src": "color/svg/E1A8.svg",
+      "width": 1024
+    },
+    "0xE1A9": {
+      "src": "color/svg/E1A9.svg",
+      "width": 1024
+    },
+    "0xE1AA": {
+      "src": "color/svg/E1AA.svg",
+      "width": 1024
+    },
+    "0xE1AB": {
+      "src": "color/svg/E1AB.svg",
+      "width": 1024
+    },
+    "0xE1AC": {
+      "src": "color/svg/E1AC.svg",
+      "width": 1024
+    },
+    "0xE1AD": {
+      "src": "color/svg/E1AD.svg",
+      "width": 1024
+    },
+    "0xE1AE": {
+      "src": "color/svg/E1AE.svg",
+      "width": 1024
+    },
+    "0xE1AF": {
+      "src": "color/svg/E1AF.svg",
+      "width": 1024
+    },
+    "0xE1B0": {
+      "src": "color/svg/E1B0.svg",
+      "width": 1024
+    },
+    "0xE1B1": {
+      "src": "color/svg/E1B1.svg",
+      "width": 1024
+    },
+    "0xE1B2": {
+      "src": "color/svg/E1B2.svg",
+      "width": 1024
+    },
+    "0xE1B3": {
+      "src": "color/svg/E1B3.svg",
+      "width": 1024
+    },
+    "0xE1B4": {
+      "src": "color/svg/E1B4.svg",
+      "width": 1024
+    },
+    "0xE1B5": {
+      "src": "color/svg/E1B5.svg",
+      "width": 1024
+    },
+    "0xE1B6": {
+      "src": "color/svg/E1B6.svg",
+      "width": 1024
+    },
+    "0xE1B7": {
+      "src": "color/svg/E1B7.svg",
+      "width": 1024
+    },
+    "0xE1B8": {
+      "src": "color/svg/E1B8.svg",
+      "width": 1024
+    },
+    "0xE1B9": {
+      "src": "color/svg/E1B9.svg",
+      "width": 1024
+    },
+    "0xE1BA": {
+      "src": "color/svg/E1BA.svg",
+      "width": 1024
+    },
+    "0xE1BB": {
+      "src": "color/svg/E1BB.svg",
+      "width": 1024
+    },
+    "0xE1BC": {
+      "src": "color/svg/E1BC.svg",
+      "width": 1024
+    },
+    "0xE1BD": {
+      "src": "color/svg/E1BD.svg",
+      "width": 1024
+    },
+    "0xE1BE": {
+      "src": "color/svg/E1BE.svg",
+      "width": 1024
+    },
+    "0xE1BF": {
+      "src": "color/svg/E1BF.svg",
+      "width": 1024
+    },
+    "0xE1C0": {
+      "src": "color/svg/E1C0.svg",
+      "width": 1024
+    },
+    "0xE1C1": {
+      "src": "color/svg/E1C1.svg",
+      "width": 1024
+    },
+    "0xE1C2": {
+      "src": "color/svg/E1C2.svg",
+      "width": 1024
+    },
+    "0xE1C3": {
+      "src": "color/svg/E1C3.svg",
+      "width": 1024
+    },
+    "0xE1C4": {
+      "src": "color/svg/E1C4.svg",
+      "width": 1024
+    },
+    "0xE1C5": {
+      "src": "color/svg/E1C5.svg",
+      "width": 1024
+    },
+    "0xE1C6": {
+      "src": "color/svg/E1C6.svg",
+      "width": 1024
+    },
+    "0xE1C7": {
+      "src": "color/svg/E1C7.svg",
+      "width": 1024
+    },
+    "0xE1C8": {
+      "src": "color/svg/E1C8.svg",
+      "width": 1024
+    },
+    "0xE1C9": {
+      "src": "color/svg/E1C9.svg",
+      "width": 1024
+    },
+    "0xE1CA": {
+      "src": "color/svg/E1CA.svg",
+      "width": 1024
+    },
+    "0xE1CB": {
+      "src": "color/svg/E1CB.svg",
+      "width": 1024
+    },
+    "0xE1CC": {
+      "src": "color/svg/E1CC.svg",
+      "width": 1024
+    },
+    "0xE1CD": {
+      "src": "color/svg/E1CD.svg",
+      "width": 1024
+    },
+    "0xE1CE": {
+      "src": "color/svg/E1CE.svg",
+      "width": 1024
+    },
+    "0xE1CF": {
+      "src": "color/svg/E1CF.svg",
+      "width": 1024
+    },
+    "0xE1D0": {
+      "src": "color/svg/E1D0.svg",
+      "width": 1024
+    },
+    "0xE1D1": {
+      "src": "color/svg/E1D1.svg",
+      "width": 1024
+    },
+    "0xE1D2": {
+      "src": "color/svg/E1D2.svg",
+      "width": 1024
+    },
+    "0xE1D3": {
+      "src": "color/svg/E1D3.svg",
+      "width": 1024
+    },
+    "0xE1D4": {
+      "src": "color/svg/E1D4.svg",
+      "width": 1024
+    },
+    "0xE1D5": {
+      "src": "color/svg/E1D5.svg",
+      "width": 1024
+    },
+    "0xE1D6": {
+      "src": "color/svg/E1D6.svg",
+      "width": 1024
+    },
+    "0xE1D7": {
+      "src": "color/svg/E1D7.svg",
+      "width": 1024
+    },
+    "0xE1D8": {
+      "src": "color/svg/E1D8.svg",
+      "width": 1024
+    },
+    "0xE1D9": {
+      "src": "color/svg/E1D9.svg",
+      "width": 1024
+    },
+    "0xE1DA": {
+      "src": "color/svg/E1DA.svg",
+      "width": 1024
+    },
+    "0xE1DB": {
+      "src": "color/svg/E1DB.svg",
+      "width": 1024
+    },
+    "0xE1DC": {
+      "src": "color/svg/E1DC.svg",
+      "width": 1024
+    },
+    "0xE1DD": {
+      "src": "color/svg/E1DD.svg",
+      "width": 1024
+    },
+    "0xE1DE": {
+      "src": "color/svg/E1DE.svg",
+      "width": 1024
+    },
+    "0xE1DF": {
+      "src": "color/svg/E1DF.svg",
+      "width": 1024
+    },
+    "0xE1E0": {
+      "src": "color/svg/E1E0.svg",
+      "width": 1024
+    },
+    "0xE1E1": {
+      "src": "color/svg/E1E1.svg",
+      "width": 1024
+    },
+    "0xE1E2": {
+      "src": "color/svg/E1E2.svg",
+      "width": 1024
+    },
+    "0xE1E3": {
+      "src": "color/svg/E1E3.svg",
+      "width": 1024
+    },
+    "0xE1E4": {
+      "src": "color/svg/E1E4.svg",
+      "width": 1024
+    },
+    "0xE1E5": {
+      "src": "color/svg/E1E5.svg",
+      "width": 1024
+    },
+    "0xE1E6": {
+      "src": "color/svg/E1E6.svg",
+      "width": 1024
+    },
+    "0xE1E7": {
+      "src": "color/svg/E1E7.svg",
+      "width": 1024
+    },
+    "0xE1E8": {
+      "src": "color/svg/E1E8.svg",
+      "width": 1024
+    },
+    "0xE1E9": {
+      "src": "color/svg/E1E9.svg",
+      "width": 1024
+    },
+    "0xE1EA": {
+      "src": "color/svg/E1EA.svg",
+      "width": 1024
+    },
+    "0xE1EB": {
+      "src": "color/svg/E1EB.svg",
+      "width": 1024
+    },
+    "0xE1EC": {
+      "src": "color/svg/E1EC.svg",
+      "width": 1024
+    },
+    "0xE1ED": {
+      "src": "color/svg/E1ED.svg",
+      "width": 1024
+    },
+    "0xE1EE": {
+      "src": "color/svg/E1EE.svg",
+      "width": 1024
+    },
+    "0xE1EF": {
+      "src": "color/svg/E1EF.svg",
+      "width": 1024
+    },
+    "0xE1F0": {
+      "src": "color/svg/E1F0.svg",
+      "width": 1024
+    },
+    "0xE1F1": {
+      "src": "color/svg/E1F1.svg",
+      "width": 1024
+    },
+    "0xE1F2": {
+      "src": "color/svg/E1F2.svg",
+      "width": 1024
+    },
+    "0xE1F3": {
+      "src": "color/svg/E1F3.svg",
+      "width": 1024
+    },
+    "0xE1F4": {
+      "src": "color/svg/E1F4.svg",
+      "width": 1024
+    },
+    "0xE1F5": {
+      "src": "color/svg/E1F5.svg",
+      "width": 1024
+    },
+    "0xE1F6": {
+      "src": "color/svg/E1F6.svg",
+      "width": 1024
+    },
+    "0xE1F7": {
+      "src": "color/svg/E1F7.svg",
+      "width": 1024
+    },
+    "0xE1F8": {
+      "src": "color/svg/E1F8.svg",
+      "width": 1024
+    },
+    "0xE1F9": {
+      "src": "color/svg/E1F9.svg",
+      "width": 1024
+    },
+    "0xE1FA": {
+      "src": "color/svg/E1FA.svg",
+      "width": 1024
+    },
+    "0xE1FB": {
+      "src": "color/svg/E1FB.svg",
+      "width": 1024
+    },
+    "0xE1FC": {
+      "src": "color/svg/E1FC.svg",
+      "width": 1024
+    },
+    "0xE1FD": {
+      "src": "color/svg/E1FD.svg",
+      "width": 1024
+    },
+    "0xE1FE": {
+      "src": "color/svg/E1FE.svg",
+      "width": 1024
+    },
+    "0xE1FF": {
+      "src": "color/svg/E1FF.svg",
+      "width": 1024
+    },
+    "0xE200": {
+      "src": "color/svg/E200.svg",
+      "width": 1024
+    },
+    "0xE201": {
+      "src": "color/svg/E201.svg",
+      "width": 1024
+    },
+    "0xE202": {
+      "src": "color/svg/E202.svg",
+      "width": 1024
+    },
+    "0xE203": {
+      "src": "color/svg/E203.svg",
+      "width": 1024
+    },
+    "0xE204": {
+      "src": "color/svg/E204.svg",
+      "width": 1024
+    },
+    "0xE205": {
+      "src": "color/svg/E205.svg",
+      "width": 1024
+    },
+    "0xE206": {
+      "src": "color/svg/E206.svg",
+      "width": 1024
+    },
+    "0xE207": {
+      "src": "color/svg/E207.svg",
+      "width": 1024
+    },
+    "0xE208": {
+      "src": "color/svg/E208.svg",
+      "width": 1024
+    },
+    "0xE209": {
+      "src": "color/svg/E209.svg",
+      "width": 1024
+    },
+    "0xE20A": {
+      "src": "color/svg/E20A.svg",
+      "width": 1024
+    },
+    "0xE20B": {
+      "src": "color/svg/E20B.svg",
+      "width": 1024
+    },
+    "0xE20C": {
+      "src": "color/svg/E20C.svg",
+      "width": 1024
+    },
+    "0xE20D": {
+      "src": "color/svg/E20D.svg",
+      "width": 1024
+    },
+    "0xE300": {
+      "src": "color/svg/E300.svg",
+      "width": 1024
+    },
+    "0xE301": {
+      "src": "color/svg/E301.svg",
+      "width": 1024
+    },
+    "0xE302": {
+      "src": "color/svg/E302.svg",
+      "width": 1024
+    },
+    "0xE303": {
+      "src": "color/svg/E303.svg",
+      "width": 1024
+    },
+    "0xE304": {
+      "src": "color/svg/E304.svg",
+      "width": 1024
+    },
+    "0xE305": {
+      "src": "color/svg/E305.svg",
+      "width": 1024
+    },
+    "0xE306": {
+      "src": "color/svg/E306.svg",
+      "width": 1024
+    },
+    "0xE307": {
+      "src": "color/svg/E307.svg",
+      "width": 1024
+    },
+    "0xE308": {
+      "src": "color/svg/E308.svg",
+      "width": 1024
+    },
+    "0xE309": {
+      "src": "color/svg/E309.svg",
+      "width": 1024
+    },
+    "0xE30A": {
+      "src": "color/svg/E30A.svg",
+      "width": 1024
+    },
+    "0xE30B": {
+      "src": "color/svg/E30B.svg",
+      "width": 1024
+    },
+    "0xE30C": {
+      "src": "color/svg/E30C.svg",
+      "width": 1024
+    },
+    "0xE30D": {
+      "src": "color/svg/E30D.svg",
+      "width": 1024
+    },
+    "0xE30E": {
+      "src": "color/svg/E30E.svg",
+      "width": 1024
+    },
+    "0xE30F": {
+      "src": "color/svg/E30F.svg",
+      "width": 1024
+    },
+    "0xE310": {
+      "src": "color/svg/E310.svg",
+      "width": 1024
+    },
+    "0xE311": {
+      "src": "color/svg/E311.svg",
+      "width": 1024
+    },
+    "0xE312": {
+      "src": "color/svg/E312.svg",
+      "width": 1024
+    },
+    "0xE313": {
+      "src": "color/svg/E313.svg",
+      "width": 1024
+    },
+    "0xE400": {
+      "src": "color/svg/E400.svg",
+      "width": 1024
+    },
+    "0xE401": {
+      "src": "color/svg/E401.svg",
+      "width": 1024
+    },
+    "0xE402": {
+      "src": "color/svg/E402.svg",
+      "width": 1024
+    },
+    "0xE403": {
+      "src": "color/svg/E403.svg",
+      "width": 1024
+    },
+    "0xE404": {
+      "src": "color/svg/E404.svg",
+      "width": 1024
+    },
+    "0xE405": {
+      "src": "color/svg/E405.svg",
+      "width": 1024
+    },
+    "0xE406": {
+      "src": "color/svg/E406.svg",
+      "width": 1024
+    },
+    "0xE407": {
+      "src": "color/svg/E407.svg",
+      "width": 1024
+    },
+    "0xE408": {
+      "src": "color/svg/E408.svg",
+      "width": 1024
+    },
+    "0xE409": {
+      "src": "color/svg/E409.svg",
+      "width": 1024
+    },
+    "0xE40A": {
+      "src": "color/svg/E40A.svg",
+      "width": 1024
+    },
+    "0xE40B": {
+      "src": "color/svg/E40B.svg",
+      "width": 1024
+    },
+    "0xE40C": {
+      "src": "color/svg/E40C.svg",
+      "width": 1024
+    },
+    "0xE40D": {
+      "src": "color/svg/E40D.svg",
+      "width": 1024
+    },
+    "0xE40E": {
+      "src": "color/svg/E40E.svg",
+      "width": 1024
+    },
+    "0xE40F": {
+      "src": "color/svg/E40F.svg",
+      "width": 1024
+    },
+    "0xE410": {
+      "src": "color/svg/E410.svg",
+      "width": 1024
+    },
+    "0xE411": {
+      "src": "color/svg/E411.svg",
+      "width": 1024
+    },
+    "0xE412": {
+      "src": "color/svg/E412.svg",
+      "width": 1024
+    },
+    "0xE413": {
+      "src": "color/svg/E413.svg",
+      "width": 1024
+    },
+    "0xE500": {
+      "src": "color/svg/E500.svg",
+      "width": 1024
+    },
+    "0xE501": {
+      "src": "color/svg/E501.svg",
+      "width": 1024
+    },
+    "0xE502": {
+      "src": "color/svg/E502.svg",
+      "width": 1024
+    },
+    "0xE503": {
+      "src": "color/svg/E503.svg",
+      "width": 1024
+    },
+    "0xE504": {
+      "src": "color/svg/E504.svg",
+      "width": 1024
+    },
+    "0xE505": {
+      "src": "color/svg/E505.svg",
+      "width": 1024
+    },
+    "0xE506": {
+      "src": "color/svg/E506.svg",
+      "width": 1024
+    },
+    "0xE507": {
+      "src": "color/svg/E507.svg",
+      "width": 1024
+    },
+    "0xE508": {
+      "src": "color/svg/E508.svg",
+      "width": 1024
+    },
+    "0xE509": {
+      "src": "color/svg/E509.svg",
+      "width": 1024
+    },
+    "0xE50A": {
+      "src": "color/svg/E50A.svg",
+      "width": 1024
+    },
+    "0xE50B": {
+      "src": "color/svg/E50B.svg",
+      "width": 1024
+    },
+    "0xE50C": {
+      "src": "color/svg/E50C.svg",
+      "width": 1024
+    },
+    "0xE50D": {
+      "src": "color/svg/E50D.svg",
+      "width": 1024
+    },
+    "0xE600": {
+      "src": "color/svg/E600.svg",
+      "width": 1024
+    },
+    "0xE601": {
+      "src": "color/svg/E601.svg",
+      "width": 1024
+    },
+    "0xE602": {
+      "src": "color/svg/E602.svg",
+      "width": 1024
+    },
+    "0xE603": {
+      "src": "color/svg/E603.svg",
+      "width": 1024
+    },
+    "0xE604": {
+      "src": "color/svg/E604.svg",
+      "width": 1024
+    },
+    "0xE605": {
+      "src": "color/svg/E605.svg",
+      "width": 1024
+    },
+    "0xE606": {
+      "src": "color/svg/E606.svg",
+      "width": 1024
+    },
+    "0xE607": {
+      "src": "color/svg/E607.svg",
+      "width": 1024
+    },
+    "0xE608": {
+      "src": "color/svg/E608.svg",
+      "width": 1024
+    },
+    "0xE609": {
+      "src": "color/svg/E609.svg",
+      "width": 1024
+    },
+    "0xE60A": {
+      "src": "color/svg/E60A.svg",
+      "width": 1024
+    },
+    "0xE60B": {
+      "src": "color/svg/E60B.svg",
+      "width": 1024
+    },
+    "0xE60C": {
+      "src": "color/svg/E60C.svg",
+      "width": 1024
+    },
+    "0xE60D": {
+      "src": "color/svg/E60D.svg",
+      "width": 1024
+    },
+    "0xE60E": {
+      "src": "color/svg/E60E.svg",
+      "width": 1024
+    },
+    "0xE60F": {
+      "src": "color/svg/E60F.svg",
+      "width": 1024
+    },
+    "0xE610": {
+      "src": "color/svg/E610.svg",
+      "width": 1024
+    },
+    "0xE611": {
+      "src": "color/svg/E611.svg",
+      "width": 1024
+    },
+    "0xE612": {
+      "src": "color/svg/E612.svg",
+      "width": 1024
+    },
+    "0xE613": {
+      "src": "color/svg/E613.svg",
+      "width": 1024
+    },
+    "0xE614": {
+      "src": "color/svg/E614.svg",
+      "width": 1024
+    },
+    "0xE615": {
+      "src": "color/svg/E615.svg",
+      "width": 1024
+    },
+    "0xE616": {
+      "src": "color/svg/E616.svg",
+      "width": 1024
+    },
+    "0xE617": {
+      "src": "color/svg/E617.svg",
+      "width": 1024
+    },
+    "0xE618": {
+      "src": "color/svg/E618.svg",
+      "width": 1024
+    },
+    "0xE619": {
+      "src": "color/svg/E619.svg",
+      "width": 1024
+    },
+    "0xE61A": {
+      "src": "color/svg/E61A.svg",
+      "width": 1024
+    },
+    "0xE61B": {
+      "src": "color/svg/E61B.svg",
+      "width": 1024
+    },
+    "0xE61C": {
+      "src": "color/svg/E61C.svg",
+      "width": 1024
+    },
+    "0xE61D": {
+      "src": "color/svg/E61D.svg",
+      "width": 1024
+    },
+    "0xE61E": {
+      "src": "color/svg/E61E.svg",
+      "width": 1024
+    },
+    "0xE61F": {
+      "src": "color/svg/E61F.svg",
+      "width": 1024
+    },
+    "0xE620": {
+      "src": "color/svg/E620.svg",
+      "width": 1024
+    },
+    "0xE621": {
+      "src": "color/svg/E621.svg",
+      "width": 1024
+    },
+    "0xE622": {
+      "src": "color/svg/E622.svg",
+      "width": 1024
+    },
+    "0xE623": {
+      "src": "color/svg/E623.svg",
+      "width": 1024
+    },
+    "0xE624": {
+      "src": "color/svg/E624.svg",
+      "width": 1024
+    },
+    "0xE625": {
+      "src": "color/svg/E625.svg",
+      "width": 1024
+    },
+    "0xE626": {
+      "src": "color/svg/E626.svg",
+      "width": 1024
+    },
+    "0xE627": {
+      "src": "color/svg/E627.svg",
+      "width": 1024
+    },
+    "0xE628": {
+      "src": "color/svg/E628.svg",
+      "width": 1024
+    },
+    "0xE629": {
+      "src": "color/svg/E629.svg",
+      "width": 1024
+    },
+    "0xE62A": {
+      "src": "color/svg/E62A.svg",
+      "width": 1024
+    },
+    "0xE62B": {
+      "src": "color/svg/E62B.svg",
+      "width": 1024
+    },
+    "0xE62C": {
+      "src": "color/svg/E62C.svg",
+      "width": 1024
+    },
+    "0xE62D": {
+      "src": "color/svg/E62D.svg",
+      "width": 1024
+    },
+    "0xE62E": {
+      "src": "color/svg/E62E.svg",
+      "width": 1024
+    },
+    "0xE62F": {
+      "src": "color/svg/E62F.svg",
+      "width": 1024
+    },
+    "0xE630": {
+      "src": "color/svg/E630.svg",
+      "width": 1024
+    },
+    "0xE631": {
+      "src": "color/svg/E631.svg",
+      "width": 1024
+    },
+    "0xE632": {
+      "src": "color/svg/E632.svg",
+      "width": 1024
+    },
+    "0xE633": {
+      "src": "color/svg/E633.svg",
+      "width": 1024
+    },
+    "0xE634": {
+      "src": "color/svg/E634.svg",
+      "width": 1024
+    },
+    "0xE635": {
+      "src": "color/svg/E635.svg",
+      "width": 1024
+    },
+    "0xE636": {
+      "src": "color/svg/E636.svg",
+      "width": 1024
+    },
+    "0xE637": {
+      "src": "color/svg/E637.svg",
+      "width": 1024
+    },
+    "0xE638": {
+      "src": "color/svg/E638.svg",
+      "width": 1024
+    },
+    "0xE639": {
+      "src": "color/svg/E639.svg",
+      "width": 1024
+    },
+    "0xE63A": {
+      "src": "color/svg/E63A.svg",
+      "width": 1024
+    },
+    "0xE63B": {
+      "src": "color/svg/E63B.svg",
+      "width": 1024
+    },
+    "0xE63C": {
+      "src": "color/svg/E63C.svg",
+      "width": 1024
+    },
+    "0xE63D": {
+      "src": "color/svg/E63D.svg",
+      "width": 1024
+    },
+    "0xE63E": {
+      "src": "color/svg/E63E.svg",
+      "width": 1024
+    },
+    "0xE63F": {
+      "src": "color/svg/E63F.svg",
+      "width": 1024
+    },
+    "0xE640": {
+      "src": "color/svg/E640.svg",
+      "width": 1024
+    },
+    "0xE641": {
+      "src": "color/svg/E641.svg",
+      "width": 1024
+    },
+    "0xE642": {
+      "src": "color/svg/E642.svg",
+      "width": 1024
+    },
+    "0xE643": {
+      "src": "color/svg/E643.svg",
+      "width": 1024
+    },
+    "0xE644": {
+      "src": "color/svg/E644.svg",
+      "width": 1024
+    },
+    "0xE645": {
+      "src": "color/svg/E645.svg",
+      "width": 1024
+    },
+    "0xE646": {
+      "src": "color/svg/E646.svg",
+      "width": 1024
+    },
+    "0xE647": {
+      "src": "color/svg/E647.svg",
+      "width": 1024
+    },
+    "0xE648": {
+      "src": "color/svg/E648.svg",
+      "width": 1024
+    },
+    "0xE649": {
+      "src": "color/svg/E649.svg",
+      "width": 1024
+    },
+    "0xE64A": {
+      "src": "color/svg/E64A.svg",
+      "width": 1024
+    },
+    "0xE64B": {
+      "src": "color/svg/E64B.svg",
+      "width": 1024
+    },
+    "0xE64C": {
+      "src": "color/svg/E64C.svg",
+      "width": 1024
+    },
+    "0xE64D": {
+      "src": "color/svg/E64D.svg",
+      "width": 1024
+    },
+    "0xE64E": {
+      "src": "color/svg/E64E.svg",
+      "width": 1024
+    },
+    "0xE64F": {
+      "src": "color/svg/E64F.svg",
+      "width": 1024
+    },
+    "0xE650": {
+      "src": "color/svg/E650.svg",
+      "width": 1024
+    },
+    "0xE651": {
+      "src": "color/svg/E651.svg",
+      "width": 1024
+    },
+    "0xE652": {
+      "src": "color/svg/E652.svg",
+      "width": 1024
+    },
+    "0xE653": {
+      "src": "color/svg/E653.svg",
+      "width": 1024
+    },
+    "0xE654": {
+      "src": "color/svg/E654.svg",
+      "width": 1024
+    },
+    "0xE655": {
+      "src": "color/svg/E655.svg",
+      "width": 1024
+    },
+    "0xE656": {
+      "src": "color/svg/E656.svg",
+      "width": 1024
+    },
+    "0xE657": {
+      "src": "color/svg/E657.svg",
+      "width": 1024
+    },
+    "0xE658": {
+      "src": "color/svg/E658.svg",
+      "width": 1024
+    },
+    "0xE659": {
+      "src": "color/svg/E659.svg",
+      "width": 1024
+    },
+    "0xE65A": {
+      "src": "color/svg/E65A.svg",
+      "width": 1024
+    },
+    "0xE65B": {
+      "src": "color/svg/E65B.svg",
+      "width": 1024
+    },
+    "0xE65C": {
+      "src": "color/svg/E65C.svg",
+      "width": 1024
+    },
+    "0xE65D": {
+      "src": "color/svg/E65D.svg",
+      "width": 1024
+    },
+    "0xE65E": {
+      "src": "color/svg/E65E.svg",
+      "width": 1024
+    },
+    "0xE65F": {
+      "src": "color/svg/E65F.svg",
+      "width": 1024
+    },
+    "0xE660": {
+      "src": "color/svg/E660.svg",
+      "width": 1024
+    },
+    "0xE661": {
+      "src": "color/svg/E661.svg",
+      "width": 1024
+    },
+    "0xE662": {
+      "src": "color/svg/E662.svg",
+      "width": 1024
+    },
+    "0xE663": {
+      "src": "color/svg/E663.svg",
+      "width": 1024
+    },
+    "0xE664": {
+      "src": "color/svg/E664.svg",
+      "width": 1024
+    },
+    "0xE665": {
+      "src": "color/svg/E665.svg",
+      "width": 1024
+    },
+    "0xE666": {
+      "src": "color/svg/E666.svg",
+      "width": 1024
+    },
+    "0xE667": {
+      "src": "color/svg/E667.svg",
+      "width": 1024
+    },
+    "0xE668": {
+      "src": "color/svg/E668.svg",
+      "width": 1024
+    },
+    "0xE669": {
+      "src": "color/svg/E669.svg",
+      "width": 1024
+    },
+    "0xE66A": {
+      "src": "color/svg/E66A.svg",
+      "width": 1024
+    },
+    "0xE700": {
+      "src": "color/svg/E700.svg",
+      "width": 1024
+    },
+    "0xE701": {
+      "src": "color/svg/E701.svg",
+      "width": 1024
+    },
+    "0xE702": {
+      "src": "color/svg/E702.svg",
+      "width": 1024
+    },
+    "0xE703": {
+      "src": "color/svg/E703.svg",
+      "width": 1024
+    },
+    "0xE704": {
+      "src": "color/svg/E704.svg",
+      "width": 1024
+    },
+    "0xE705": {
+      "src": "color/svg/E705.svg",
+      "width": 1024
+    },
+    "0xE706": {
+      "src": "color/svg/E706.svg",
+      "width": 1024
+    },
+    "0xE707": {
+      "src": "color/svg/E707.svg",
+      "width": 1024
+    },
+    "0xE708": {
+      "src": "color/svg/E708.svg",
+      "width": 1024
+    },
+    "0xE709": {
+      "src": "color/svg/E709.svg",
+      "width": 1024
+    },
+    "0xE70A": {
+      "src": "color/svg/E70A.svg",
+      "width": 1024
+    },
+    "0xE70B": {
+      "src": "color/svg/E70B.svg",
+      "width": 1024
+    },
+    "0xE70C": {
+      "src": "color/svg/E70C.svg",
+      "width": 1024
+    },
+    "0xE70D": {
+      "src": "color/svg/E70D.svg",
+      "width": 1024
+    },
+    "0xE70E": {
+      "src": "color/svg/E70E.svg",
+      "width": 1024
+    },
+    "0xE70F": {
+      "src": "color/svg/E70F.svg",
+      "width": 1024
+    },
+    "0xE710": {
+      "src": "color/svg/E710.svg",
+      "width": 1024
+    },
+    "0xE711": {
+      "src": "color/svg/E711.svg",
+      "width": 1024
+    },
+    "0xE712": {
+      "src": "color/svg/E712.svg",
+      "width": 1024
+    },
+    "0xE713": {
+      "src": "color/svg/E713.svg",
+      "width": 1024
+    },
+    "0xE714": {
+      "src": "color/svg/E714.svg",
+      "width": 1024
+    },
+    "0xE715": {
+      "src": "color/svg/E715.svg",
+      "width": 1024
+    },
+    "0xE716": {
+      "src": "color/svg/E716.svg",
+      "width": 1024
+    },
+    "0xE717": {
+      "src": "color/svg/E717.svg",
+      "width": 1024
+    },
+    "0xE718": {
+      "src": "color/svg/E718.svg",
+      "width": 1024
+    },
+    "0xE719": {
+      "src": "color/svg/E719.svg",
+      "width": 1024
+    },
+    "0xE71A": {
+      "src": "color/svg/E71A.svg",
+      "width": 1024
+    },
+    "0xE71B": {
+      "src": "color/svg/E71B.svg",
+      "width": 1024
+    },
+    "0xE71C": {
+      "src": "color/svg/E71C.svg",
+      "width": 1024
+    },
+    "0xE71D": {
+      "src": "color/svg/E71D.svg",
+      "width": 1024
+    },
+    "0xE71E": {
+      "src": "color/svg/E71E.svg",
+      "width": 1024
+    },
+    "0xE71F": {
+      "src": "color/svg/E71F.svg",
+      "width": 1024
+    },
+    "0xE720": {
+      "src": "color/svg/E720.svg",
+      "width": 1024
+    },
+    "0xE721": {
+      "src": "color/svg/E721.svg",
+      "width": 1024
+    },
+    "0xE722": {
+      "src": "color/svg/E722.svg",
+      "width": 1024
+    },
+    "0xE723": {
+      "src": "color/svg/E723.svg",
+      "width": 1024
+    },
+    "0xE724": {
+      "src": "color/svg/E724.svg",
+      "width": 1024
+    },
+    "0xE725": {
+      "src": "color/svg/E725.svg",
+      "width": 1024
+    },
+    "0xE726": {
+      "src": "color/svg/E726.svg",
+      "width": 1024
+    },
+    "0xE727": {
+      "src": "color/svg/E727.svg",
+      "width": 1024
+    },
+    "0xE728": {
+      "src": "color/svg/E728.svg",
+      "width": 1024
+    },
+    "0xE729": {
+      "src": "color/svg/E729.svg",
+      "width": 1024
+    },
+    "0xE72A": {
+      "src": "color/svg/E72A.svg",
+      "width": 1024
+    },
+    "0xE72B": {
+      "src": "color/svg/E72B.svg",
+      "width": 1024
+    },
+    "0xE72C": {
+      "src": "color/svg/E72C.svg",
+      "width": 1024
+    },
+    "0xE72D": {
+      "src": "color/svg/E72D.svg",
+      "width": 1024
+    },
+    "0xE72E": {
+      "src": "color/svg/E72E.svg",
+      "width": 1024
+    },
+    "0xE72F": {
+      "src": "color/svg/E72F.svg",
+      "width": 1024
+    },
+    "0xE730": {
+      "src": "color/svg/E730.svg",
+      "width": 1024
+    },
+    "0xE731": {
+      "src": "color/svg/E731.svg",
+      "width": 1024
+    },
+    "0xE732": {
+      "src": "color/svg/E732.svg",
+      "width": 1024
+    },
+    "0xE733": {
+      "src": "color/svg/E733.svg",
+      "width": 1024
+    },
+    "0xE734": {
+      "src": "color/svg/E734.svg",
+      "width": 1024
+    },
+    "0xE735": {
+      "src": "color/svg/E735.svg",
+      "width": 1024
+    },
+    "0xE736": {
+      "src": "color/svg/E736.svg",
+      "width": 1024
+    },
+    "0xE737": {
+      "src": "color/svg/E737.svg",
+      "width": 1024
+    },
+    "0xE738": {
+      "src": "color/svg/E738.svg",
+      "width": 1024
+    },
+    "0xE739": {
+      "src": "color/svg/E739.svg",
+      "width": 1024
+    },
+    "0xE73A": {
+      "src": "color/svg/E73A.svg",
+      "width": 1024
+    },
+    "0xE73B": {
+      "src": "color/svg/E73B.svg",
+      "width": 1024
+    }
+  }
+}

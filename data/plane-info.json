@@ -1,0 +1,719 @@
+{
+  "sky-cloud": {
+    "slug": "sky-cloud",
+    "name": "Sky & Cloud",
+    "blockStart": 57344,
+    "blockEnd": 57393,
+    "range": [
+      "U+E000",
+      "U+E031"
+    ],
+    "count": 50,
+    "subCategories": [
+      {
+        "id": "CH_CloudHigh",
+        "label": "Cloud High (CH)",
+        "count": 9,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0509/1",
+        "description": "High clouds (cloud base above ~5,000 m / 20,000 ft). Includes cirrus (Ci), cirrocumulus (Cc), and cirrostratus (Cs) \u2014 all composed of ice crystals. Code figures 0\u20139 represent combinations and sub-types.",
+        "codeTable": "0515"
+      },
+      {
+        "id": "CL_CloudLow",
+        "label": "Cloud Low (CL)",
+        "count": 10,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0513/1",
+        "description": "Low clouds (cloud base below ~2,000 m / 6,500 ft). Includes stratus (St), stratocumulus (Sc), cumulus (Cu), and cumulonimbus (Cb). Code figures 0\u20139.",
+        "codeTable": "0500"
+      },
+      {
+        "id": "CM_CloudMedium",
+        "label": "Cloud Medium (CM)",
+        "count": 9,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0515/1",
+        "description": "Middle clouds (cloud base ~2,000\u20137,000 m / 6,500\u201320,000 ft). Includes altocumulus (Ac), altostratus (As), and nimbostratus (Ns). Code figures 0\u20139.",
+        "codeTable": "0509"
+      },
+      {
+        "id": "C_CloudGenus",
+        "label": "Cloud Genus (C)",
+        "count": 10,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0500/0",
+        "description": "The cloud genus (C) is the dominant cloud type observed when there is no obstruction to vision or no fog. Maps directly to the 10 WMO cloud genera. Code figures 0\u20139.",
+        "codeTable": "0513"
+      },
+      {
+        "id": "N_TotalCloudCover",
+        "label": "Total Cloud Cover (N)",
+        "count": 12,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/2700/0a",
+        "description": "Total cloud cover expressed in oktas (eighths of sky covered). N=0 means clear sky, N=8 means overcast. Code figures 0\u20139 (9 = sky obscured, not the same as overcast).",
+        "codeTable": "2700"
+      }
+    ],
+    "wmoSource": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+    "wmoCodeTable": "http://codes.wmo.int/306/0509/1",
+    "creator": "WMO CBS IPET-DR&C",
+    "publisher": "WMO",
+    "date": "2013-01-25",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols representing cloud types, genera, sky coverage, and vertical extent as observed from surface weather stations. These encode the WMO cloud classification system used worldwide in SYNOP and SHIP reports.",
+    "overview": "The WMO cloud classification divides clouds into three layers by altitude \u2014 high (CH), middle (CM), low (CL) \u2014 plus cloud genera (C) and total sky coverage (N). Each symbol encodes a specific cloud type or coverage amount reported in the SYNOP FM 12 and SHIP FM 14 observation codes.",
+    "usageInPractice": [
+      {
+        "context": "SYNOP Report (FM 12)",
+        "description": "Cloud group reported in section 3 (333 group). The N group gives total cloud cover (code figure 0\u20138), followed by C (cloud genus), CL (low cloud), CM (medium cloud), and CH (high cloud) code figures. Each code figure maps directly to one of these symbols.",
+        "example": "333 84301 \u2014 N=8 (overcast), C=4 (stratus), CL=3 (cumulus), CM=0 (none), CH=1 (cirrus)"
+      },
+      {
+        "context": "SHIP Report (FM 14)",
+        "description": "Identical cloud group encoding as SYNOP, transmitted from voluntary observing ships and ocean weather stations."
+      },
+      {
+        "context": "Meteorological Charts",
+        "description": "Station model plots on surface analysis and upper-air charts use these symbols to depict observed cloud conditions at reporting stations."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Tables 0500 (CL), 0509 (CM), 0513 (C), 0515 (CH), 2700 (N)",
+        "url": "https://library.wmo.int/viewer/68375"
+      },
+      {
+        "title": "WMO-No. 485, Volume I, Part II",
+        "name": "Manual on the Global Data-processing and Forecasting System",
+        "sections": "Appendix II-4 \u2014 Graphical Specifications",
+        "url": "https://library.wmo.int/viewer/45616"
+      },
+      {
+        "title": "WMO-No. 8",
+        "name": "International Cloud Atlas",
+        "url": "https://cloudatlas.wmo.int/"
+      }
+    ],
+    "codeTables": {
+      "CL": {
+        "table": "0500",
+        "name": "Low cloud (CL)",
+        "url": "http://codes.wmo.int/306/0500",
+        "codes": "0\u20139"
+      },
+      "CM": {
+        "table": "0509",
+        "name": "Medium cloud (CM)",
+        "url": "http://codes.wmo.int/306/0509",
+        "codes": "0\u20139"
+      },
+      "C": {
+        "table": "0513",
+        "name": "Cloud genus (C)",
+        "url": "http://codes.wmo.int/306/0513",
+        "codes": "0\u20139"
+      },
+      "CH": {
+        "table": "0515",
+        "name": "High cloud (CH)",
+        "url": "http://codes.wmo.int/306/0515",
+        "codes": "0\u20139"
+      },
+      "N": {
+        "table": "2700",
+        "name": "Total cloud cover (N)",
+        "url": "http://codes.wmo.int/306/2700",
+        "codes": "0\u20138"
+      }
+    }
+  },
+  "present-weather": {
+    "slug": "present-weather",
+    "name": "Present Weather",
+    "blockStart": 57600,
+    "blockEnd": 57869,
+    "range": [
+      "U+E100",
+      "U+E20D"
+    ],
+    "count": 270,
+    "subCategories": [
+      {
+        "id": "ww_PresentWeather",
+        "label": "Present Weather (ww)",
+        "count": 111,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/4677/00",
+        "description": "Manual station present weather \u2014 100 code figures (00\u201399) covering all observable weather phenomena. Organized by intensity (light, moderate, heavy) and type (precipitation, obscurations, storms, etc.). Used in SYNOP, SHIP, and manual METAR reports.",
+        "codeTable": "4677"
+      },
+      {
+        "id": "wawa_PresentWeatherAutomaticStation",
+        "label": "Present Weather \u2014 Auto Station (wawa)",
+        "count": 81,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/4680/04",
+        "description": "Automatic weather station present weather \u2014 100 code figures (00\u201399) for AWS/AWOS reporting. Designed for sensors rather than human observers. Some codes are unique to automatic stations (e.g., code 45 = fog, automatic).",
+        "codeTable": "4687"
+      },
+      {
+        "id": "w1w1_PresentWeatherAdditional",
+        "label": "Present Weather \u2014 Additional (w1w1)",
+        "count": 78,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/4687/04",
+        "description": "Additional present weather phenomena for supplementary reporting. Used in the w1w1 group to provide extra detail beyond the primary ww code. Covers supplementary descriptors and qualifier combinations.",
+        "codeTable": "4680"
+      }
+    ],
+    "wmoSource": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+    "wmoCodeTable": "http://codes.wmo.int/306/4677/00",
+    "creator": "WMO CBS IPET-DR&C",
+    "publisher": "WMO",
+    "date": "2013-01-25",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols for current weather phenomena observed at a station during the reporting period. This is the largest category, covering everything from fog and drizzle to thunderstorms and volcanic eruptions. Divided into manual station (ww), automatic station (wawa), and additional weather (w1w1) sub-categories.",
+    "overview": "Present weather codes are among the most widely used WMO symbols. The ww group (code table 4677) has 100 code figures (00\u201399) used by manual observing stations. The wawa group (code table 4687) provides automated equivalents for AWS/AWOS. The w1w1 group (code table 4680) encodes additional weather phenomena for supplementary reporting.",
+    "usageInPractice": [
+      {
+        "context": "SYNOP Report (FM 12)",
+        "description": "The ww group in section 1 (group 1) reports present weather. For example, ww=61 means slight rain, ww=75 means heavy snow. The w'w' group (optional) in section 2 reports recent weather (past 1 hour).",
+        "example": "AAXX 25041 93852 31258 10005 20030 40103 51008 60012 70512 82710 333 20100 \u2014 ww=00 (no significant weather)"
+      },
+      {
+        "context": "METAR Report (FM 15)",
+        "description": "Present weather is encoded in the weather group using abbreviations. For example, 'RA' = rain, 'SN' = snow, 'BR' = mist, 'FG' = fog, '+TSRA' = thunderstorm with heavy rain. These abbreviations map to specific ww code figures.",
+        "example": "METAR KLAX 251755Z 25012KT 10SM FEW040 SCT100 28/22 A3005 RMK AO2 SLP182 T02830222"
+      },
+      {
+        "context": "TAF Report (FM 51)",
+        "description": "Terminal Aerodrome Forecasts use the same weather codes as METAR. Temporal changes use PROB30/PROB40, BECMG, TEMPO, and FM groups to describe expected weather transitions.",
+        "example": "TAF EGLL 251100Z 2512/2612 24015KT 9999 FEW040 PROB30 TEMPO 1218 4000 TSRA"
+      },
+      {
+        "context": "Automatic Weather Stations (AWS)",
+        "description": "AWS/AWOS report wawa codes (table 4687) instead of ww. These are designed for automated observation \u2014 some phenomena like 'sky unchanged' or 'sky partially clouded' have no equivalent in the manual ww table."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Tables 4677 (ww), 4687 (wawa), 4680 (w1w1)",
+        "url": "https://library.wmo.int/viewer/68375"
+      },
+      {
+        "title": "WMO-No. 306, Volume I, Part B",
+        "name": "Manual on Codes \u2014 Binary Codes",
+        "sections": "BUFR Code Table 020003 (weather), CREX Code Table 006003",
+        "url": "https://library.wmo.int/viewer/68375"
+      },
+      {
+        "title": "WMO-No. 485, Volume I, Part II",
+        "name": "Manual on the Global Data-processing and Forecasting System",
+        "sections": "Appendix II-4 \u2014 Graphical Specifications",
+        "url": "https://library.wmo.int/viewer/45616"
+      }
+    ],
+    "codeTables": {
+      "ww": {
+        "table": "4677",
+        "name": "Present weather (ww)",
+        "url": "http://codes.wmo.int/306/4677",
+        "codes": "00\u201399"
+      },
+      "wawa": {
+        "table": "4687",
+        "name": "Present weather, automatic station (wawa)",
+        "url": "http://codes.wmo.int/306/4687",
+        "codes": "00\u201399"
+      },
+      "w1w1": {
+        "table": "4680",
+        "name": "Additional present weather (w1w1)",
+        "url": "http://codes.wmo.int/306/4680",
+        "codes": "00\u201399"
+      }
+    }
+  },
+  "past-weather": {
+    "slug": "past-weather",
+    "name": "Past Weather",
+    "blockStart": 58112,
+    "blockEnd": 58131,
+    "range": [
+      "U+E300",
+      "U+E313"
+    ],
+    "count": 20,
+    "subCategories": [
+      {
+        "id": "W1W2_PastWeather",
+        "label": "Past Weather (W1W2)",
+        "count": 9,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/4561/3a",
+        "description": "Past weather for manual stations \u2014 10 code figures (0\u20139). Reports the two most significant weather types observed in the past 6 hours. Codes cover precipitation (0=cloud covering >\u00bd sky, 3=duststorm/sandstorm, 4=fog, 5=drizzle, 6=rain, 7=snow, 8=showers, 9=thunderstorm).",
+        "codeTable": "4561"
+      },
+      {
+        "id": "Wa1Wa2_PastWeatherAutomaticStation",
+        "label": "Past Weather \u2014 Auto Station (Wa1Wa2)",
+        "count": 11,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/4531/1",
+        "description": "Past weather for automatic weather stations \u2014 10 code figures (0\u20139). The automatic equivalent of W1W2, used by AWS/AWOS where a human observer is not available.",
+        "codeTable": "4531"
+      }
+    ],
+    "wmoSource": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+    "wmoCodeTable": "http://codes.wmo.int/306/4561/3a",
+    "creator": "WMO CBS IPET-DR&C",
+    "publisher": "WMO",
+    "date": "2013-01-25",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols for weather phenomena observed during the past 6 hours (manual stations) or past 1 hour (automatic stations). Used in the W1W2 and Wa1Wa2 groups of SYNOP reports to characterize recent conditions.",
+    "overview": "Past weather provides context for the current observation. The W1W2 group reports the most significant weather observed in the past 6 hours (two code figures: W1 and W2). The Wa1Wa2 group is the automatic station equivalent. These symbols help forecasters understand weather trends and are critical for aviation meteorology.",
+    "usageInPractice": [
+      {
+        "context": "SYNOP Report (FM 12)",
+        "description": "The W1W2 group appears in the main body of the SYNOP report. W1 is the most significant past weather (past 6 hours for manual stations), W2 is the second most significant.",
+        "example": "70512 \u2014 W1=5 (drizzle), W2=1 (cloud covering more than half the sky during past hour)"
+      },
+      {
+        "context": "Aviation Meteorology",
+        "description": "Past weather is relevant for understanding recent conditions at aerodromes, particularly for assessing icing potential, visibility trends, and precipitation history."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Tables 4561 (W1W2), 4531 (Wa1Wa2)",
+        "url": "https://library.wmo.int/viewer/68375"
+      }
+    ],
+    "codeTables": {
+      "W1W2": {
+        "table": "4561",
+        "name": "Past weather (W1W2)",
+        "url": "http://codes.wmo.int/306/4561",
+        "codes": "0\u20139"
+      },
+      "Wa1Wa2": {
+        "table": "4531",
+        "name": "Past weather, automatic (Wa1Wa2)",
+        "url": "http://codes.wmo.int/306/4531",
+        "codes": "0\u20139"
+      }
+    }
+  },
+  "state-of-ground": {
+    "slug": "state-of-ground",
+    "name": "State of Ground",
+    "blockStart": 58368,
+    "blockEnd": 58387,
+    "range": [
+      "U+E400",
+      "U+E413"
+    ],
+    "count": 20,
+    "subCategories": [
+      {
+        "id": "E_StateOfGround",
+        "label": "State of Ground (E)",
+        "count": 10,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0901/0",
+        "description": "State of ground with or without snow cover \u2014 10 code figures (0\u20139). Reports whether the ground is dry (0), moist (1), wet (2), frozen (7), glazed (8), etc. Used in SYNOP section 3.",
+        "codeTable": "0901"
+      },
+      {
+        "id": "Eprime_StateOfGround",
+        "label": "State of Ground (E')",
+        "count": 10,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0975/0",
+        "description": "Supplementary state of ground \u2014 10 code figures (0\u20139). Provides additional detail on surface conditions, particularly useful for distinguishing between types of snow cover, ice, and water on the ground.",
+        "codeTable": "0975"
+      }
+    ],
+    "wmoSource": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+    "wmoCodeTable": "http://codes.wmo.int/306/0901/0",
+    "creator": "WMO CBS IPET-DR&C",
+    "publisher": "WMO",
+    "date": "2013-01-25",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols encoding the state of the ground surface, including whether it is dry, moist, wet, covered with ice/snow, or frozen. Used in SYNOP reports for climatological and aviation purposes.",
+    "overview": "The E group (state of ground with/without snow cover) and E' group (state of ground, supplementary) provide detailed surface condition reporting. Essential for runway condition assessment at airports, road weather services, and hydrological monitoring.",
+    "usageInPractice": [
+      {
+        "context": "SYNOP Report (FM 12)",
+        "description": "The E group in section 3 (333 group) reports the state of the ground surface. Used alongside soil temperature and depth of snow cover for comprehensive surface condition assessment.",
+        "example": "333 64301 \u2014 E=6 (ice on ground), depth of snow = 4 cm"
+      },
+      {
+        "context": "Aviation \u2014 Runway Condition",
+        "description": "State of ground data is used in aerodrome reports to assess runway contamination, braking action, and the need for de-icing operations."
+      },
+      {
+        "context": "Road Weather Services",
+        "description": "State of ground observations feed into road weather information systems used by highway maintenance and traffic management."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Tables 0901 (E), 0975 (E')",
+        "url": "https://library.wmo.int/viewer/68375"
+      }
+    ],
+    "codeTables": {
+      "E": {
+        "table": "0901",
+        "name": "State of ground (E)",
+        "url": "http://codes.wmo.int/306/0901",
+        "codes": "0\u20139"
+      },
+      "E'": {
+        "table": "0975",
+        "name": "State of ground, supplementary (E')",
+        "url": "http://codes.wmo.int/306/0975",
+        "codes": "0\u20139"
+      }
+    }
+  },
+  "pressure": {
+    "slug": "pressure",
+    "name": "Pressure",
+    "blockStart": 58624,
+    "blockEnd": 58637,
+    "range": [
+      "U+E500",
+      "U+E50D"
+    ],
+    "count": 14,
+    "subCategories": [
+      {
+        "id": "a_PressureTendencyCharacteristic",
+        "label": "Pressure Tendency (a)",
+        "count": 9,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/0200/0",
+        "description": "Pressure tendency characteristic \u2014 9 code figures (0\u20138). Indicates how atmospheric pressure has changed over the past 3 hours. Codes 0\u20133 = rising, 4 = steady, 5\u20138 = falling. Combined with the ppp group (3-hour pressure change) in SYNOP section 3.",
+        "codeTable": "0200"
+      },
+      {
+        "id": "PressureCentres",
+        "label": "Pressure Centres",
+        "count": 5,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/485/II-4-2/4.1.3a",
+        "description": "Symbols for marking pressure centres on synoptic weather charts. Includes high (H/H'), low (L/L'), and col pressure centres. Used by meteorologists in manual and automated chart analysis."
+      }
+    ],
+    "wmoSource": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+    "wmoCodeTable": "http://codes.wmo.int/306/0200/0",
+    "creator": "WMO CBS IPET-DR&C",
+    "publisher": "WMO",
+    "date": "2013-01-25",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols for pressure tendency characteristics (how atmospheric pressure has changed over the past 3 hours) and pressure centre symbols (highs, lows, cols) used on weather charts.",
+    "overview": "The pressure tendency group (a) in SYNOP reports indicates how barometric pressure has changed over the past 3 hours and the character of the change (steady, rising/falling slowly, rising/falling quickly, now rising/falling after a fall/rise, etc.). Pressure centre symbols are used on synoptic charts to mark high and low pressure systems.",
+    "usageInPractice": [
+      {
+        "context": "SYNOP Report (FM 12)",
+        "description": "The a group (pressure tendency characteristic) is reported in section 3 along with the 3-hour pressure change (ppp). Together, these indicate the type and magnitude of pressure change.",
+        "example": "3 02012 \u2014 a=2 (pressure has been rising then steady), ppp=012 (pressure rose 1.2 hPa in 3 hours)"
+      },
+      {
+        "context": "Synoptic Charts",
+        "description": "Pressure centre symbols (H, L, etc.) mark anticyclones and depressions on surface analysis and prognostic charts. The isobars around these centres define the pressure pattern."
+      },
+      {
+        "context": "Aviation METAR/TAF",
+        "description": "Pressure tendency is reported as 'rising', 'falling', or 'steady' (QNH tendency), though not using the same code figures as SYNOP. The information helps pilots anticipate weather changes."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Table 0200 (a \u2014 pressure tendency characteristic)",
+        "url": "https://library.wmo.int/viewer/68375"
+      }
+    ],
+    "codeTables": {
+      "a": {
+        "table": "0200",
+        "name": "Pressure tendency characteristic (a)",
+        "url": "http://codes.wmo.int/306/0200",
+        "codes": "0\u20138"
+      }
+    }
+  },
+  "wind-ocean": {
+    "slug": "wind-ocean",
+    "name": "Wind & Ocean",
+    "blockStart": 58880,
+    "blockEnd": 58986,
+    "range": [
+      "U+E600",
+      "U+E66A"
+    ],
+    "count": 107,
+    "subCategories": [
+      {
+        "id": "ddff_WindArrows",
+        "label": "Wind Arrows (dd, ff)",
+        "count": 102,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/485/II-4-2/ddff",
+        "description": "Wind arrows with barbs/pennants encoding direction and speed. 102 symbols covering the full range of wind directions (0\u2013360\u00b0) at various speed increments. Used on synoptic charts, station model plots, and in coded reports. A calm (00000) is also included.",
+        "codeTable": "0300"
+      },
+      {
+        "id": "dw1dw1_SwellDirection",
+        "label": "Swell Direction (dw, dw)",
+        "count": 4,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/485/II-4-2/dw1dw1",
+        "description": "Swell direction arrows showing the direction from which ocean swell waves are approaching. Used in SHIP reports and marine meteorology. Swell direction differs from wind direction when swell is generated by distant storms.",
+        "codeTable": "0301"
+      },
+      {
+        "id": "Ds_ShipDirection",
+        "label": "Ship Direction (Ds)",
+        "count": 1,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/485/II-4-2/ddff",
+        "description": "Ship direction of movement, used in SHIP (FM 14) reports to indicate the vessel's course. Combined with ship speed (Vs) to track the observing platform's movement.",
+        "codeTable": "0302"
+      }
+    ],
+    "wmoSource": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+    "wmoCodeTable": "http://codes.wmo.int/485/II-4-2/ddff",
+    "creator": "WMO CBS IPET-DR&C",
+    "publisher": "WMO",
+    "date": "2013-01-25",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols for wind direction and speed (wind arrows with barbs or pennants), swell direction, and ship course direction. The largest category by symbol count due to the many wind direction/speed combinations.",
+    "overview": "Wind arrows encode both direction (the direction the arrow points, i.e., where the wind is coming from) and speed (via barbs and pennants). A short barb = 5 knots, a long barb = 10 knots, a pennant (flag) = 50 knots. The ddff group in SYNOP encodes wind direction (dd, in tens of degrees) and speed (ff, in knots or m/s). Swell direction symbols show the direction ocean swell waves are travelling from.",
+    "usageInPractice": [
+      {
+        "context": "SYNOP Report (FM 12)",
+        "description": "The ddff group in the main body reports wind direction and speed. dd = wind direction in tens of degrees (00\u201336, 00=calm), ff = wind speed. Reported in knots or m/s depending on national practice.",
+        "example": "31512 \u2014 dd=315 (wind from 315\u00b0, i.e. NW), ff=12 knots"
+      },
+      {
+        "context": "SHIP Report (FM 14)",
+        "description": "Same wind encoding as SYNOP, plus additional swell direction (dw1dw1) and ship direction (Ds) groups for oceanographic reporting."
+      },
+      {
+        "context": "METAR Report (FM 15)",
+        "description": "Wind reported as dddffGggKT or dddffGggMPS (direction, speed, gust). Direction in degrees, speed in knots or m/s.",
+        "example": "25012G25KT \u2014 wind from 250\u00b0 at 12 knots, gusting 25 knots"
+      },
+      {
+        "context": "Marine Forecasts",
+        "description": "Wind and swell data are critical for marine safety. GMDSS (Global Maritime Distress and Safety System) broadcasts include wind and wave forecasts using these symbols on chart overlays."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Table 0300 (dd), Section 1 (ff), Code Tables for dw1dw1, Ds",
+        "url": "https://library.wmo.int/viewer/68375"
+      },
+      {
+        "title": "WMO-No. 485, Volume I, Part II",
+        "name": "Manual on the Global Data-processing and Forecasting System",
+        "sections": "Appendix II-4 \u2014 Wind arrow graphical specifications",
+        "url": "https://library.wmo.int/viewer/45616"
+      }
+    ],
+    "codeTables": {
+      "ddff": {
+        "table": "0300",
+        "name": "Wind direction (dd) and speed (ff)",
+        "url": "http://codes.wmo.int/485/II-4-2/ddff",
+        "codes": "00\u201336, 99"
+      },
+      "dw1dw1": {
+        "table": "0301",
+        "name": "Swell direction (dw1dw1)",
+        "url": "http://codes.wmo.int/306/0301",
+        "codes": "00\u201336"
+      },
+      "Ds": {
+        "table": "0302",
+        "name": "Ship direction (Ds)",
+        "url": "http://codes.wmo.int/306/0302",
+        "codes": "0\u20139"
+      }
+    }
+  },
+  "significant-weather": {
+    "slug": "significant-weather",
+    "name": "Significant Weather",
+    "blockStart": 59136,
+    "blockEnd": 59195,
+    "range": [
+      "U+E700",
+      "U+E73B"
+    ],
+    "count": 60,
+    "subCategories": [
+      {
+        "id": "ICAO_SigWx",
+        "label": "Significant Weather \u2014 ICAO",
+        "count": 39,
+        "source": "WMO-No.49 Technical Regulations, Volume II Meteorological Service for International Air Navigation, C.3.1, Appendix 1",
+        "creator": "WMO CAeM",
+        "publisher": "WMO/ICAO",
+        "date": "2013-04-30",
+        "identifier": "http://codes.wmo.int/49/3/4/5",
+        "description": "ICAO significant weather symbols for aviation weather charts (SIGWX). Includes thunderstorms (TS), tropical cyclones (TC), turbulence (TURB), icing (ICE), volcanic ash (VA), hail (GR), and other hazards. These symbols are standardized internationally for use by flight crews and dispatchers.",
+        "codeTable": "C.3.1"
+      },
+      {
+        "id": "Ft_Fronts",
+        "label": "Fronts (Ft)",
+        "count": 21,
+        "source": "WMO-No.485 Manual on the Global Data-processing and Forecasting System, Volume I, Part II, Section 4, Appendix II-4",
+        "creator": "WMO CBS IPET-DR&C",
+        "publisher": "WMO",
+        "date": "2013-01-25",
+        "identifier": "http://codes.wmo.int/306/1152/5",
+        "description": "Meteorological front type symbols used on surface analysis and prognostic charts. Includes cold front (blue triangles pointing toward warm air), warm front (red semicircles pointing toward cold air), occluded front (combined symbols), stationary front (alternating symbols on opposite sides), and quasi-stationary front. Code figures 0\u20139 per WMO table 1152.",
+        "codeTable": "1152"
+      }
+    ],
+    "wmoSource": "WMO-No.49 Technical Regulations, Volume II Meteorological Service for International Air Navigation, C.3.1, Appendix 1",
+    "wmoCodeTable": "http://codes.wmo.int/49/3/4/5",
+    "creator": "WMO CAeM",
+    "publisher": "WMO/ICAO",
+    "date": "2013-04-30",
+    "contributor": "Chris Little",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Symbols for significant weather phenomena (ICAO SigWx) and meteorological fronts used on aviation weather charts. Includes thunderstorms, tropical cyclones, turbulence, icing, volcanic ash, and front types (cold, warm, occluded, stationary, quasi-stationary).",
+    "overview": "This category covers two critical areas in aviation meteorology: (1) ICAO significant weather symbols used on SIGWX charts (low-level and high-level) per ICAO Annex 3 and WMO-No. 49, and (2) frontal symbols (Ft) used on surface analysis charts. These are essential for flight planning and route selection.",
+    "usageInPractice": [
+      {
+        "context": "SIGWX Charts (WMO-No. 49)",
+        "description": "Significant weather charts depict weather phenomena hazardous to aviation: thunderstorms (EMB TS), tropical cyclones (TC), turbulence (CAT, MOD TURB), icing (MOD ICE, SEV ICE), volcanic ash (VA), and jet streams. These charts are issued at FL100\u2013FL250 (low-level) and FL250\u2013FL630 (high-level).",
+        "example": "A SIGWX chart might show EMB TS between FL250\u2013FL350 with MOD TURB and MOD ICE, connected by a jet stream arrow at FL390 with 120 kt."
+      },
+      {
+        "context": "Surface Analysis Charts",
+        "description": "Frontal symbols (cold front triangles, warm front semicircles, occluded front combinations) mark the boundaries between air masses on surface weather charts. These are fundamental to synoptic meteorology."
+      },
+      {
+        "context": "TAF Report (FM 51)",
+        "description": "While TAF uses text codes rather than symbols, the phenomena described (TS, GR, FG, etc.) correspond directly to the symbols shown on SIGWX charts. TAF augments the chart information with timing and location details.",
+        "example": "TAF ... PROB30 TEMPO 1218 4000 TSRA \u2014 corresponds to EMB TS symbol on SIGWX chart"
+      },
+      {
+        "context": "SIGMET (Significant Meteorological Information)",
+        "description": "SIGMET messages warn of hazardous weather phenomena that correspond to the SigWx symbols: thunderstorms, tropical cyclones, severe icing, severe turbulence, volcanic ash, and dust storms."
+      }
+    ],
+    "wmoDocuments": [
+      {
+        "title": "WMO-No. 49, Volume II",
+        "name": "Technical Regulations \u2014 Meteorological Service for International Air Navigation",
+        "sections": "C.3.1 Appendix 1 \u2014 Significant weather chart specifications",
+        "url": "https://library.wmo.int/viewer/46167"
+      },
+      {
+        "title": "ICAO Annex 3",
+        "name": "Meteorological Service for International Air Navigation",
+        "sections": "Appendix 2 \u2014 Criteria for the inclusion of significant weather phenomena",
+        "url": "https://www.icao.int/safety/airnavigation/AIG/Pages/Annex-3.aspx"
+      },
+      {
+        "title": "WMO-No. 306, Volume I, Part A",
+        "name": "Manual on Codes \u2014 International Codes",
+        "sections": "Code Table 1152 (Ft \u2014 type of front)",
+        "url": "https://library.wmo.int/viewer/68375"
+      }
+    ],
+    "codeTables": {
+      "SigWx": {
+        "table": "C.3.1",
+        "name": "ICAO Significant Weather",
+        "url": "http://codes.wmo.int/49/3/4/5",
+        "codes": "Various"
+      },
+      "Ft": {
+        "table": "1152",
+        "name": "Type of front (Ft)",
+        "url": "http://codes.wmo.int/306/1152",
+        "codes": "0\u20139"
+      }
+    }
+  }
+}

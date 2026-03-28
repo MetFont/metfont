@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="4.6">
+  <name>
+    <namerecord nameID="0" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont (c) 2013-2024 OGC MetOcean DWG. CC-BY-3.0
+    </namerecord>
+    <namerecord nameID="1" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont
+    </namerecord>
+    <namerecord nameID="2" platformID="3" platEncID="1" langID="0x409">
+      Regular
+    </namerecord>
+    <namerecord nameID="3" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont Regular: github.com/MetFont/metfont
+    </namerecord>
+    <namerecord nameID="4" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont Regular
+    </namerecord>
+    <namerecord nameID="5" platformID="3" platEncID="1" langID="0x409"></namerecord>
+    <namerecord nameID="6" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont-Regular
+    </namerecord>
+    <namerecord nameID="7" platformID="3" platEncID="1" langID="0x409">
+      OGC MetOcean DWG
+    </namerecord>
+    <namerecord nameID="8" platformID="3" platEncID="1" langID="0x409">
+      OGC MetOcean DWG
+    </namerecord>
+    <namerecord nameID="9" platformID="3" platEncID="1" langID="0x409">
+      WMO CBS IPET-DR&amp;C
+    </namerecord>
+    <namerecord nameID="10" platformID="3" platEncID="1" langID="0x409">
+      WMO international weather symbols font. 541 meteorological symbols in Unicode PUA (U+E000-U+E7FF).
+    </namerecord>
+    <namerecord nameID="11" platformID="3" platEncID="1" langID="0x409">
+      https://github.com/MetFont/metfont
+    </namerecord>
+    <namerecord nameID="12" platformID="3" platEncID="1" langID="0x409">
+      https://github.com/MetFont/metfont
+    </namerecord>
+    <namerecord nameID="13" platformID="3" platEncID="1" langID="0x409">
+      Creative Commons Attribution 3.0 Unported
+    </namerecord>
+    <namerecord nameID="14" platformID="3" platEncID="1" langID="0x409">
+      https://creativecommons.org/licenses/by/3.0/
+    </namerecord>
+    <namerecord nameID="16" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont
+    </namerecord>
+    <namerecord nameID="17" platformID="3" platEncID="1" langID="0x409">
+      Regular
+    </namerecord>
+    <namerecord nameID="21" platformID="3" platEncID="1" langID="0x409">
+      WeatherFont Regular
+    </namerecord>
+    <namerecord nameID="22" platformID="3" platEncID="1" langID="0x409">
+      Regular
+    </namerecord>
+  </name>
+</ttFont>

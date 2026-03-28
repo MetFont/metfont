@@ -1,0 +1,3 @@
+[submodule "vendor/WorldWeatherSymbols"]
+	path = vendor/WorldWeatherSymbols
+	url = https://github.com/metanorma/WorldWeatherSymbols.git

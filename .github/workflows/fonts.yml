@@ -1,0 +1,76 @@
+name: Build Fonts
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths:
+      - 'vendor/**'
+      - 'color/svg/**'
+      - 'helpers/**'
+      - 'data/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install nanoemoji picosvg fonttools lxml
+
+      - name: Assign codepoints
+        run: python3 helpers/assign-codepoints.py
+
+      - name: Clean upstream SVGs
+        run: python3 helpers/clean-sources.py
+
+      - name: Normalize font-ready SVGs
+        run: python3 helpers/normalize-svg.py --input-dir src/ --mapping data/codepoint-map.json --output-dir color/svg/
+
+      - name: Generate fonts
+        run: python3 helpers/generate-fonts.py ${{ github.ref_name }}
+
+      - name: Copy fonts to site
+        run: |
+          mkdir -p site/public
+          cp font/MetFont-glyf/MetFont-glyf.woff2 site/public/
+          cp font/MetFont-glyf/MetFont-glyf.ttf site/public/
+          cp font/MetFont-glyf_colr_1/MetFont-glyf_colr_1.ttf site/public/
+          cp font/MetFont-picosvgz/MetFont-picosvgz.ttf site/public/
+
+      - name: Generate site data
+        run: |
+          python3 site/extract-glyphs.py > site/public/glyphs.json
+          cp data/plane-info.json site/public/
+          cp data/category-descriptions.json site/public/
+
+      - name: Upload font artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fonts
+          path: font/
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: fonts
+          path: font/
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: font/**/*

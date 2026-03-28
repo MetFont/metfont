@@ -1,0 +1,246 @@
+= MetFont
+
+image:https://img.shields.io/badge/Unicode-PUA%20U%2BE000%E2%80%93U%2BE7FF-blue[Unicode PUA U+E000–U+E7FF]
+image:https://img.shields.io/badge/Glyphs-541-green[541 Glyphs]
+image:https://img.shields.io/badge/License-CC%20BY%203.0-orange[CC BY 3.0]
+
+== Overview
+
+MetFont is an open-source, freely licensed color font encoding 541 WMO (World Meteorological Organization) and ICAO meteorological symbols as Unicode glyphs in the link:https://en.wikipedia.org/wiki/Private_Use_Areas#Private_Use_Area_(PUA)[Private Use Area] (PUA, U+E000–U+E7FF). Curated by the OGC MetOcean DWG from WMO and ICAO standards.
+
+The glyphs are organized into 7 semantic blocks — one per WMO symbol category — each with room for future additions.
+
+The font provides standardized weather symbols used in:
+
+* METAR/TAF aviation reports
+* SYNOP synoptic observations
+* Marine weather bulletins
+* Weather charts and maps
+
+Website: https://www.metfont.org/[www.metfont.org]
+
+== Font Formats
+
+[cols="^,^,^,^"]
+|===
+| Format | File | Description | Best For
+| WOFF2 | `MetFont-glyf.woff2` | Monochrome TrueType, Brotli-compressed | Production web
+| TTF | `MetFont-glyf.ttf` | Monochrome TrueType outlines | Desktop, universal compatibility
+| COLRv1 TTF | `MetFont-glyf_colr_1.ttf` | COLRv1 + CPAL color layers | Chrome, Edge, modern browsers
+| SVG TTF | `MetFont-picosvgz.ttf` | Embedded SVG table | Safari, Firefox, max fidelity
+|===
+
+== Font Specifications
+
+[cols="^,^"]
+|===
+| Property | Value |
+| Units per Em (UPM) | 1024 |
+| Ascent | 1045 |
+| Descent | -275 |
+| Unicode Range | U+E000 – U+E7FF |
+| Glyph Count | 541 |
+| License | CC BY 3.0 |
+|===
+
+== Unicode Block Allocation
+
+The 541 glyphs are organized into 7 semantic blocks within the BMP Private Use Area, analogous to Unicode planes:
+
+[cols="1,2,1,3"]
+|===
+| Block | PUA Range | Glyphs | Categories
+| Sky & Cloud | U+E000–U+E0FF | 50 | CloudHigh (CH), CloudLow (CL), CloudMedium (CM), CloudGenus (C), TotalCloudCover (N)
+| Present Weather | U+E100–U+E2FF | 270 | PresentWeather (ww), Auto Station (wawa), Additional (w1w1)
+| Past Weather | U+E300–U+E3FF | 20 | PastWeather (W1W2), Auto Station (Wa1Wa2)
+| State of Ground | U+E400–U+E4FF | 20 | StateOfGround (E), StateOfGround (E')
+| Pressure | U+E500–U+E5FF | 14 | PressureTendency (a), PressureCentres
+| Wind & Ocean | U+E600–U+E6FF | 107 | WindArrows (dd, ff), SwellDirection, ShipDirection
+| Significant Weather | U+E700–U+E7FF | 60 | ICAO SigWx, Fronts (Ft)
+|===
+
+Each block has 256 or 512 codepoints allocated, with room for future WMO symbol additions (1,507 free codepoints total).
+
+== Quick Start
+
+=== Web Embedding
+
+[source,css]
+----
+@font-face {
+  font-family: 'MetFont';
+  src: url('MetFont-glyf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.weather {
+  font-family: 'MetFont', sans-serif;
+}
+----
+
+=== CSS Codepoints
+
+[source,css]
+----
+.rain::before              { content: '\E713'; }
+.thunderstorm::before      { content: '\E71A'; }
+.snow::before              { content: '\E719'; }
+.fog::before               { content: '\E71F'; }
+.drizzle::before           { content: '\E703'; }
+.tropical-cyclone::before  { content: '\E71B'; }
+.cloud-high::before        { content: '\E000'; }
+.wind-calm::before         { content: '\E600'; }
+----
+
+=== HTML Entities
+
+[source,html]
+----
+<span class="weather">&#xE713;</span>  <!-- Rain -->
+<span class="weather">&#xE71A;</span>  <!-- Thunderstorm -->
+<span class="weather">&#xE71B;</span>  <!-- Tropical cyclone -->
+----
+
+=== JavaScript / Python
+
+[source,javascript]
+----
+const rain = String.fromCodePoint(0xE713);
+----
+
+[source,python]
+----
+rain = '\uE713'
+----
+
+== WMO Source Documents
+
+[cols="1,2"]
+|===
+| Block | WMO Source
+| Sky & Cloud | WMO-No.485 Manual on the Global Data-processing and Forecasting System, Vol. I, Part II, Section 4, Appendix II-4
+| Present Weather | WMO-No.485 Manual on the Global Data-processing and Forecasting System, Vol. I, Part II, Section 4, Appendix II-4
+| Past Weather | WMO-No.485 Manual on the Global Data-processing and Forecasting System, Vol. I, Part II, Section 4, Appendix II-4
+| State of Ground | WMO-No.485 Manual on the Global Data-processing and Forecasting System, Vol. I, Part II, Section 4, Appendix II-4
+| Pressure | WMO-No.485 Manual on the Global Data-processing and Forecasting System, Vol. I, Part II, Section 4, Appendix II-4
+| Wind & Ocean | WMO-No.485 Manual on the Global Data-processing and Forecasting System, Vol. I, Part II, Section 4, Appendix II-4
+| Significant Weather | WMO-No.49 Technical Regulations, Vol. II, Meteorological Service for International Air Navigation, C.3.1, Appendix 1
+|===
+
+== Building from Source
+
+=== Prerequisites
+
+* Python 3.11+
+* Node.js 18+
+* `pip install nanoemoji picosvg fonttools lxml`
+
+=== Full Pipeline
+
+[source,bash]
+----
+git clone --recurse-submodules https://github.com/MetFont/metfont.git
+cd metfont
+
+npm run prepare-sources    # Assign codepoints + clean upstream SVGs
+npm run prepare-fonts      # Normalize SVGs for font compilation
+npm run generate-fonts     # Build all font formats
+----
+
+=== Individual Steps
+
+[source,bash]
+----
+# 1. Discover SVGs and assign PUA codepoints
+python3 helpers/assign-codepoints.py
+# Outputs: data/codepoint-map.json, data/icons.json, data/plane-info.json
+
+# 2. Clean upstream SVGs (fix errors, convert text to paths)
+python3 helpers/clean-sources.py
+# Outputs: src/ directory (541 cleaned SVGs)
+
+# 3. Normalize for font (stroke-to-fill, viewBox 0 0 72 72)
+python3 helpers/normalize-svg.py \
+  --input-dir src/ \
+  --mapping data/codepoint-map.json \
+  --output-dir color/svg/
+# Outputs: color/svg/ directory (541 hexcode-named SVGs)
+
+# 4. Build fonts via nanoemoji
+npm run generate-fonts
+# Outputs: font/ directory
+----
+
+=== Website
+
+The `dev` and `build:site` scripts automatically regenerate site data and copy
+fonts before starting, so the site always matches the latest font build.
+
+[source,bash]
+----
+npm run dev            # Regenerate glyphs.json + copy fonts, then start VitePress dev server
+npm run build:site     # Regenerate glyphs.json + copy fonts, then production build
+----
+
+If you've already rebuilt fonts or changed data files and just want to refresh
+the site without restarting:
+
+[source,bash]
+----
+npm run generate-glyphs   # Regenerate site/public/glyphs.json + copy plane-info.json
+npm run copy-fonts        # Copy font/ files to site/public/
+----
+
+To iterate on the full pipeline (SVGs → fonts → site):
+
+[source,bash]
+----
+npm run prepare-sources    # Step 1: Assign codepoints + clean SVGs
+npm run prepare-fonts      # Step 2: Normalize for font
+npm run generate-fonts     # Step 3: Build fonts → font/
+npm run dev                # Step 4: Copy fonts + regenerate data + start dev server
+----
+
+== Repository Structure
+
+[cols="1,3"]
+|===
+| Directory | Contents |
+| `vendor/WorldWeatherSymbols/` | Git submodule — authoritative WMO SVGs with Dublin Core metadata |
+| `src/` | Cleaned SVGs (generated, gitignored) |
+| `color/svg/` | 541 normalized font-ready SVGs (PUA hexcode filenames) |
+| `data/` | `codepoint-map.json`, `icons.json`, `plane-info.json`, `MetFont.ttx` |
+| `helpers/` | Build scripts: codepoint assignment, SVG cleaning, normalization |
+| `site/` | VitePress website (glyph browser, per-glyph and per-plane detail pages, download) |
+| `font/` | Built font output (gitignored) |
+|===
+
+== Understanding Private Use Area (PUA)
+
+The Unicode standard reserves U+E000–U+F8FF as a
+https://www.unicode.org/faq/private_use.html[Private Use Area] — a sandbox
+where organizations can assign codepoints for internal use without conflicting
+with official Unicode characters.
+
+MetFont uses the subrange **U+E000–U+E7FF** (541 codepoints across 7
+semantic blocks). These characters display correctly only when MetFont is
+loaded — other fonts will render boxes or question marks.
+
+== Copyright and license
+
+Font developed by Ribose.
+
+Symbol graphics from **OGC MetOcean DWG**.
+
+Symbols originally published by WMO and ICAO.
+
+License: https://creativecommons.org/licenses/by/3.0/[Creative Commons Attribution 3.0 Unported]
+
+== Links
+
+* Source: https://github.com/MetFont/metfont
+* Website: https://www.metfont.org/
+* Upstream SVGs: https://github.com/OGCMetOceanDWG/WorldWeatherSymbols[OGCMetOceanDWG/WorldWeatherSymbols]
+* WMO Codes: https://codes.wmo.int
+
