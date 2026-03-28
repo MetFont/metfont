@@ -1,0 +1,47 @@
+name: Build Fonts
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y woff2
+
+      - name: Install Python dependencies
+        run: pip install nanoemoji picosvg fonttools lxml
+
+      - name: Assign codepoints
+        run: python3 helpers/assign-codepoints.py
+
+      - name: Clean upstream SVGs
+        run: python3 helpers/clean-sources.py
+
+      - name: Normalize font-ready SVGs
+        run: |
+          python3 helpers/normalize-svg.py \
+            --input-dir src/ \
+            --mapping data/codepoint-map.json \
+            --output-dir color/svg/
+
+      - name: Generate fonts
+        run: python3 helpers/generate-fonts.py ${{ github.ref_name }}
+
+      - name: Upload font artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fonts
+          path: font/
+          retention-days: 7

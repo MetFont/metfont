@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (must match tag for tag-triggered runs)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y woff2
+
+      - name: Install Python dependencies
+        run: pip install nanoemoji picosvg fonttools lxml
+
+      - name: Build fonts
+        run: |
+          python3 helpers/assign-codepoints.py
+          python3 helpers/clean-sources.py
+          python3 helpers/normalize-svg.py \
+            --input-dir src/ \
+            --mapping data/codepoint-map.json \
+            --output-dir color/svg/
+          python3 helpers/generate-fonts.py ${{ github.ref_name }}
+
+      - name: Create release archive
+        run: |
+          VERSION="${{ github.ref_name }}"
+          mkdir -p release/MetFont-${VERSION}
+          find font/ -type f \( -name '*.ttf' -o -name '*.woff2' \) -exec cp {} release/MetFont-${VERSION}/ \;
+          cd release
+          zip -r MetFont-${VERSION}.zip MetFont-${VERSION}
+
+      - name: Generate release notes
+        run: |
+          VERSION="${{ github.ref_name }}"
+          GLYPH_COUNT=$(find color/svg/ -name '*.svg' | wc -l)
+          cat > release-notes.md << EOF
+          ## MetFont ${VERSION}
+
+          WMO weather symbol font release.
+
+          ### Downloads
+          - **MetFont-${VERSION}.zip** — All font files (TTF + WOFF2)
+
+          ### Font formats
+          | Format | Description | Files |
+          |--------|-------------|-------|
+          | glyf | Monochrome TrueType | \`.ttf\`, \`.woff2\` |
+          | glyf_colr_1 | COLRv1 + CPAL color | \`.ttf\`, \`.woff2\` |
+          | picosvgz | SVG table font | \`.ttf\`, \`.woff2\` |
+
+          **${GLYPH_COUNT} glyphs** covering 7 categories: Sky & Cloud, Present Weather, Past Weather, State of Ground, Pressure, Wind & Ocean, Significant Weather.
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release-notes.md
+          files: |
+            release/MetFont-${{ github.ref_name }}.zip
+            font/**/*.ttf
+            font/**/*.woff2
