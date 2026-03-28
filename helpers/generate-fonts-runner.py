@@ -16,7 +16,7 @@ import sys
 BUILD_DIR = sys.argv[1] if len(sys.argv) > 1 else "build"
 VERSION = sys.argv[2] if len(sys.argv) > 2 else "dev"
 
-METHODS = ["glyf", "glyf_colr_1", "picosvgz"]
+METHODS = ["glyf", "glyf_colr_1", "cff_colr_1", "cff2_colr_1", "picosvg", "picosvgz"]
 
 os.makedirs(BUILD_DIR, exist_ok=True)
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -38,7 +38,9 @@ for method in METHODS:
     method_build_dir = os.path.join(BUILD_DIR, method)
     os.makedirs(method_build_dir, exist_ok=True)
 
-    output_file = os.path.join(method_build_dir, f"MetFont-{method}.ttf")
+    # Determine output extension: CFF/SVG methods produce OTF, glyf produces TTF
+    ext = ".otf" if method in ("cff_colr_1", "cff2_colr_1", "picosvg", "picosvgz") else ".ttf"
+    output_file = os.path.join(method_build_dir, f"MetFont-{method}{ext}")
 
     # Use CLI flags instead of TOML — nanoemoji properly handles positional SVG args
     cmd = [
@@ -74,7 +76,7 @@ for method in METHODS:
     font_in = output_file
     method_dir = os.path.join(fonts_dir, f"MetFont-{method}")
     os.makedirs(method_dir, exist_ok=True)
-    font_out = os.path.join(method_dir, f"MetFont-{method}.ttf")
+    font_out = os.path.join(method_dir, f"MetFont-{method}{ext}")
 
     if os.path.exists(ttx_path):
         result = subprocess.run(

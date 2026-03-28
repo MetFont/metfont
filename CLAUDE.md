@@ -24,7 +24,7 @@ npm run build:site        # production build in site/
 
 For local font dev, `color/svg/` is already populated — just run `npm run generate-fonts`.
 
-**Dependencies**: `pip install nanoemoji picosvg fonttools lxml`, `npm ci` in `site/`. CI uses Docker for font builds.
+**Dependencies**: `pip install nanoemoji picosvg fonttools lxml`, **Inkscape >= 1.4** (for path-union step), `npm ci` in `site/`.
 
 ## Architecture
 

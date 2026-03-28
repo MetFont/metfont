@@ -6,7 +6,7 @@
   "license": "CC-BY-3.0",
   "scripts": {
     "prepare-sources": "python3 helpers/assign-codepoints.py && python3 helpers/clean-sources.py",
-    "prepare-fonts": "python3 helpers/normalize-svg.py --input-dir src/ --mapping data/codepoint-map.json --output-dir color/svg/",
+    "prepare-fonts": "python3 helpers/normalize-svg.py --input-dir src/ --mapping data/codepoint-map.json --output-dir color/svg/ && python3 helpers/combine-svg-paths.py --input-dir color/svg/",
     "generate-fonts": "./helpers/generate-fonts.sh",
     "copy-fonts": "./helpers/copy-fonts.sh",
     "generate-glyphs": "python3 site/extract-glyphs.py index > site/public/glyphs.json && python3 site/extract-glyphs.py metadata > site/public/glyph-metadata.json && cp data/plane-info.json site/public/ && cp data/category-descriptions.json site/public/",
