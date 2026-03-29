@@ -447,6 +447,53 @@ def remove_ids(root):
         elem.attrib.pop("id", None)
 
 
+_WRONG_TC_ARC_RE = re.compile(
+    r'^M\s*32,\s*-5\s+V\s*51\s+A\s*28,\s*28\s+0\s+0\s+0\s+32,\s*-5\s+z$',
+    re.IGNORECASE
+)
+
+
+def fix_total_cloud_cover_arcs(root, filename=""):
+    """
+    Fix arc geometry in N_TotalCloudCover symbols where the filled arc is
+    misaligned with its companion circle.
+
+    Problem: N_5.svg (and N_3, N_6, N_7, N_8, N_9) have a filled arc whose chord
+    endpoints are at y=-5 and y=51 (arc center at (32, 23)), but the companion
+    circle is centered at (32, 32) with radius 28.  The arc's chord should be
+    at y=32 (the circle's center), connecting (4, 32) to (60, 32).
+
+    The incorrect arc:  M 32,-5 V 51 A 28,28 0 0 0 32,-5 z
+    The correct arc:    M 4,32 A 28,28 0 0 0 60,32 Z
+                        (counterclockwise from (60,32) to (4,32), filling the
+                         bottom semicircle of the circle centered at (32,32))
+    """
+    if "TotalCloudCover" not in filename:
+        return
+
+    # Find all path elements with fill (not stroke-only)
+    for path in root.iter(f"{{{NS}}}path"):
+        d = path.get("d", "")
+        if not d:
+            continue
+        fill = path.get("fill", "").lower()
+        style = path.get("style", "").lower()
+        # Only fix filled paths (not strokes)
+        if fill in ("none", "") and "fill:none" in style:
+            continue
+
+        # Detect the wrong arc pattern: M 32,-5 V 51 A 28,28 0 0 0 32,-5 z
+        # (arc centered at (32,23) instead of (32,32))
+        if not _WRONG_TC_ARC_RE.match(d.strip()):
+            continue
+
+        # Replace with the correct arc for a bottom semicircle of the circle
+        # centered at (32, 32) with radius 28:
+        # chord from (4, 32) to (60, 32), arc sweeping counterclockwise
+        # through the bottom (fs=0, large-arc=0)
+        path.set("d", "M 4,32 A 28,28 0 0 0 60,32 Z")
+
+
 def _translate_path_y_coords(d, dy):
     """Translate all Y coordinates in an SVG path data string by dy units."""
     tokens = _NUM_RE.findall(d)
@@ -552,6 +599,7 @@ def clean_svg(svg_path):
     convert_text_to_path(root)
     remove_empty_groups(root)
     remove_ids(root)
+    fix_total_cloud_cover_arcs(root, filename=svg_path.name)
 
     # Clean up namespaces
     etree.cleanup_namespaces(root)

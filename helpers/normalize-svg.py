@@ -451,6 +451,7 @@ def normalize_svg(svg_bytes, scale_factor=1.0):
     # evenodd ensures overlapping same-direction fills merge rather than create holes.
     # This is the primary fix; the combine-svg-paths step below handles remaining cases.
     g.set('fill-rule', 'evenodd')
+    g.set('stroke-linecap', 'square')
     children = list(root)
     root.append(g)
     for child in children:

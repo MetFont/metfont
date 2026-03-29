@@ -18,7 +18,7 @@ build_dir = os.path.join(os.path.dirname(script_dir), "build")
 combine_script = os.path.join(script_dir, "combine-svg-paths.py")
 result = subprocess.run(
     [sys.executable, combine_script, "--input-dir",
-     os.path.join(os.path.dirname(script_dir), "color", "svg")],
+     os.path.join(os.path.dirname(script_dir), "src")],
     capture_output=True, text=True,
 )
 if result.returncode != 0:

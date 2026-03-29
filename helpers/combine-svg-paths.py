@@ -1,20 +1,25 @@
 #!/usr/bin/env python3
 """
-Combine overlapping SVG paths using Inkscape's path-union operation.
+Combine overlapping SVG paths using Inkscape's path-combining operations.
 
-Run after normalize-svg.py but before generate-fonts.py. This iterates over
-all SVG files in color/svg/, uses Inkscape's headless path-union to merge
-any overlapping <path> elements into a single geometrically-correct path,
-and strips Inkscape's verbose metadata.
+Run BEFORE normalize-svg.py so that Inkscape can convert strokes to filled
+outlines on the source SVGs (which still have stroke attributes). This script
+iterates over SVG files in src/, uses Inkscape headless to:
+  1. object-stroke-to-path — convert strokes to filled outlines
+  2. object-to-path        — convert <circle>, <line>, <rect> primitives to <path>
+  3. path-union            — boolean union of overlapping shapes into one path
+  4. path-combine          — merge all remaining paths into a single compound path
 
-Inkscape path-union handles three cases that fill-rule alone cannot:
+Then strips Inkscape's verbose metadata.
+
+Inkscape path-union + path-combine handles three cases that fill-rule alone cannot:
   1. Overlapping shapes with opposite winding directions (fill-rule="evenodd"
      does NOT fix this — the overlap still becomes a hole in some renderers)
   2. Multiple path elements that nanoemoji might treat as separate contours
   3. Self-intersecting compound paths with inconsistent orientation
 
 Usage:
-    python3 helpers/combine-svg-paths.py [--input-dir color/svg/]
+    python3 helpers/combine-svg-paths.py [--input-dir src/]
 
 Dependencies: Inkscape >= 1.4 (installed system-wide)
 """
@@ -55,7 +60,13 @@ def inkscape_available():
 
 def combine_paths_inkscape(svg_bytes: bytes) -> bytes:
     """
-    Run Inkscape headless to apply path-union on a single SVG.
+    Run Inkscape headless to convert all shapes to paths and combine them.
+
+    Inkscape action sequence:
+      1. select-all             — select every object
+      2. object-stroke-to-path — convert strokes to filled outlines
+      3. object-to-path        — convert <circle>, <line>, <rect> primitives to <path>
+      4. path-combine          — merge all paths into a single compound path
 
     Returns the cleaned SVG bytes (Inkscape metadata removed).
     Raises subprocess.CalledProcessError if Inkscape fails.
@@ -70,7 +81,7 @@ def combine_paths_inkscape(svg_bytes: bytes) -> bytes:
             [
                 "inkscape",
                 str(inp),
-                "--actions=select-all;path-combine",
+                "--actions=select-all;object-stroke-to-path;object-to-path;path-union;path-combine",
                 "--batch-process",
                 "-o",
                 str(out),
@@ -133,13 +144,18 @@ def process_svg(svg_path: Path) -> bool:
     """
     Process a single SVG file: combine paths via Inkscape, strip metadata.
 
-    Returns True if the file was modified, False if skipped (single path).
+    Returns True if the file was modified, False if skipped (single drawable).
     Raises exception on error.
     """
     content = svg_path.read_text(encoding="utf-8")
 
-    # Quick check: only process files with multiple <path> elements.
-    if content.count("<path ") < 2:
+    # Count drawable elements (paths, circles, lines, ellipses, rects, polylines)
+    # regardless of namespace prefix (svg: or bare).
+    drawables = 0
+    for tag in ("path", "circle", "line", "ellipse", "rect", "polyline", "polygon"):
+        drawables += content.count(f"<{tag} ")
+        drawables += content.count(f"<svg:{tag} ")
+    if drawables < 2:
         return False
 
     svg_bytes = content.encode("utf-8")
@@ -155,8 +171,8 @@ def main():
     )
     parser.add_argument(
         "--input-dir",
-        default="color/svg",
-        help="Directory containing normalized SVG files (default: color/svg/)",
+        default="src",
+        help="Directory containing source SVG files with strokes (default: src/)",
     )
     parser.add_argument(
         "--dry-run",
@@ -176,7 +192,7 @@ def main():
         print(f"ERROR: {svg_dir} is not a directory", file=sys.stderr)
         sys.exit(1)
 
-    svg_files = sorted(svg_dir.glob("*.svg"))
+    svg_files = sorted(svg_dir.rglob("*.svg"))
     if not svg_files:
         print(f"No SVG files found in {svg_dir}")
         sys.exit(0)
@@ -186,8 +202,13 @@ def main():
     failed = 0
 
     for svg_path in svg_files:
-        # Quick check: single-path SVGs don't need combining.
-        if svg_path.read_text(encoding="utf-8").count("<path ") < 2:
+        # Quick check: only process files with multiple drawable elements.
+        content = svg_path.read_text(encoding="utf-8")
+        drawables = 0
+        for tag in ("path", "circle", "line", "ellipse", "rect", "polyline", "polygon"):
+            drawables += content.count(f"<{tag} ")
+            drawables += content.count(f"<svg:{tag} ")
+        if drawables < 2:
             skipped += 1
             continue
 
