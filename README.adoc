@@ -27,6 +27,8 @@ Website: https://www.metfont.org/[www.metfont.org]
 | WOFF2 | `MetFont-glyf.woff2` | Monochrome TrueType, Brotli-compressed | Production web
 | TTF | `MetFont-glyf.ttf` | Monochrome TrueType outlines | Desktop, universal compatibility
 | COLRv1 TTF | `MetFont-glyf_colr_1.ttf` | COLRv1 + CPAL color layers | Chrome, Edge, modern browsers
+| COLRv1 OTF | `MetFont-cff_colr_1.ttf` | CFF outlines with COLRv1 color | OTF-native environments with color
+| COLRv2 OTF | `MetFont-cff2_colr_1.ttf` | CFF2 outlines with COLRv1 color | Next-gen OTF color rendering
 | SVG TTF | `MetFont-picosvgz.ttf` | Embedded SVG table | Safari, Firefox, max fidelity
 |===
 
@@ -34,13 +36,13 @@ Website: https://www.metfont.org/[www.metfont.org]
 
 [cols="^,^"]
 |===
-| Property | Value |
-| Units per Em (UPM) | 1024 |
-| Ascent | 1045 |
-| Descent | -275 |
-| Unicode Range | U+E000 – U+E7FF |
-| Glyph Count | 541 |
-| License | CC BY 3.0 |
+| Property | Value
+| Units per Em (UPM) | 1024
+| Ascent | 1045
+| Descent | -275
+| Unicode Range | U+E000 – U+E7FF
+| Glyph Count | 541
+| License | CC BY 3.0
 |===
 
 == Unicode Block Allocation
@@ -207,7 +209,7 @@ npm run dev                # Step 4: Copy fonts + regenerate data + start dev se
 [cols="1,3"]
 |===
 | Directory | Contents |
-| `vendor/WorldWeatherSymbols/` | Git submodule — authoritative WMO SVGs with Dublin Core metadata |
+| `vendor/WorldWeatherSymbols/` | Git submodule — MetFont's fork of the OGC MetOcean DWG WorldWeatherSymbols, cleaned up for font building |
 | `src/` | Cleaned SVGs (generated, gitignored) |
 | `color/svg/` | 541 normalized font-ready SVGs (PUA hexcode filenames) |
 | `data/` | `codepoint-map.json`, `icons.json`, `plane-info.json`, `MetFont.ttx` |

@@ -24,10 +24,22 @@ PROJECT_DIR = SCRIPT_DIR.parent
 VENDOR_DIR = PROJECT_DIR / "vendor" / "WorldWeatherSymbols"
 SYMBOLS_DIR = VENDOR_DIR / "symbols"
 DATA_DIR = PROJECT_DIR / "data"
+VERSION_FILE = PROJECT_DIR / "font" / "VERSION"
 
 NS_DC = "http://purl.org/dc/elements/1.1/"
 NS_CC = "http://creativecommons.org/ns#"
 NS_RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+
+def read_font_version():
+    """Read version from font/VERSION, return in nanoemoji format (e.g. '001.000')."""
+    try:
+        version = VERSION_FILE.read_text().strip()
+    except FileNotFoundError:
+        version = "0.0.0"
+    parts = version.split(".")
+    return ".".join(p.zfill(3) for p in parts)
+
 
 # ---------------------------------------------------------------------------
 # Block allocation: each (block_name, slug, start, size, categories)
@@ -286,7 +298,7 @@ def main():
             "fontname": "MetFont-Regular",
             "fullname": "MetFont Regular",
             "style": "Regular",
-            "version": "001.000",
+            "version": read_font_version(),
         },
         "glyphs": icons_glyphs,
     }

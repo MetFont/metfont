@@ -14,6 +14,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SCRIPT_DIR.parent
 VENDOR_DIR = PROJECT_DIR / "vendor" / "WorldWeatherSymbols"
 DATA_DIR = PROJECT_DIR / "data"
+VERSION_FILE = PROJECT_DIR / "font" / "VERSION"
 
 # Directory name -> human-readable category label
 CATEGORY_LABELS = {
@@ -311,6 +312,12 @@ if __name__ == '__main__':
         with open(DATA_DIR / "plane-info.json") as f:
             planes = json.load(f)
 
+        font_version = "0.0.0"
+        try:
+            font_version = VERSION_FILE.read_text().strip()
+        except FileNotFoundError:
+            pass
+
         glyphs_index = [
             {
                 'codepoint': g['codepoint'],
@@ -329,6 +336,7 @@ if __name__ == '__main__':
         glyph_metadata = {g['unicode']: g.get('metadata', {}) for g in data}
 
         output = {
+            'version': font_version,
             'glyphs': glyphs_index,
             'metadata': glyph_metadata,
             'planes': planes,

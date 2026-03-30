@@ -168,6 +168,9 @@ jobs:
           python3 helpers/assign-codepoints.py
           python3 helpers/extract-glyphs.py metadata > font/metadata.json
 
+      - name: Generate package README
+        run: python3 helpers/generate-package-readme.py > font/README.adoc
+
       - name: Upload font artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -187,13 +190,19 @@ jobs:
           name: fonts
           path: font/
 
+      - name: Read version
+        id: version
+        run: |
+          VERSION=$(cat font/VERSION | tr -d '[:space:]')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
       - name: Package fonts
-        run: cd font && zip -r MetFont.zip .
+        run: cd font && zip -r "MetFont-v${{ steps.version.outputs.version }}.zip" .
 
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: fonts-latest
-          name: "MetFont (latest)"
-          files: font/MetFont.zip
+          tag_name: v${{ steps.version.outputs.version }}
+          name: "MetFont v${{ steps.version.outputs.version }}"
+          files: font/MetFont-v${{ steps.version.outputs.version }}.zip
           make_latest: true
