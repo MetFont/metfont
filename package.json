@@ -8,9 +8,7 @@
     "prepare-sources": "python3 helpers/assign-codepoints.py && python3 helpers/clean-sources.py",
     "prepare-fonts": "python3 helpers/combine-svg-paths.py --input-dir src/ && python3 helpers/normalize-svg.py --input-dir src/ --mapping data/codepoint-map.json --output-dir color/svg/",
     "generate-fonts": "./helpers/generate-fonts.sh",
-    "copy-fonts": "./helpers/copy-fonts.sh",
-    "generate-glyphs": "python3 site/extract-glyphs.py index > site/public/glyphs.json && python3 site/extract-glyphs.py metadata > site/public/glyph-metadata.json && cp data/plane-info.json site/public/ && cp data/category-descriptions.json site/public/",
-    "dev": "npm run generate-glyphs && npm run copy-fonts && cd site && npm run dev",
-    "build:site": "npm run generate-glyphs && npm run copy-fonts && cd site && npm run build"
+    "generate-metadata": "python3 helpers/extract-glyphs.py metadata > font/metadata.json",
+    "package-fonts": "cd font && zip -r MetFont.zip . -x '*.DS_Store'"
   }
 }

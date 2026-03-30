@@ -50,6 +50,9 @@ jobs:
           npm run prepare-fonts
           python3 helpers/generate-fonts.py ${{ github.ref_name }}
 
+      - name: Generate metadata
+        run: python3 helpers/extract-glyphs.py metadata > font/metadata.json
+
       - name: Create release archive
         run: |
           VERSION="${{ github.ref_name }}"

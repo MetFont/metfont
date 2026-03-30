@@ -10,6 +10,16 @@ on:
       - 'font/VERSION'
       - 'package.json'
       - 'package-lock.json'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'helpers/**'
+      - 'vendor/**'
+      - 'data/**'
+      - 'font/VERSION'
+      - 'package.json'
+      - 'package-lock.json'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -137,6 +147,11 @@ jobs:
         with:
           submodules: recursive
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
@@ -148,9 +163,37 @@ jobs:
         run: |
           find font/ -type f \( -name '*.ttf' -o -name '*.woff2' \) | sort
 
+      - name: Generate metadata
+        run: |
+          python3 helpers/assign-codepoints.py
+          python3 helpers/extract-glyphs.py metadata > font/metadata.json
+
       - name: Upload font artifacts
         uses: actions/upload-artifact@v4
         with:
           name: fonts
           path: font/
           retention-days: 7
+
+  release:
+    needs: assemble
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: fonts
+          path: font/
+
+      - name: Package fonts
+        run: cd font && zip -r MetFont.zip .
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: fonts-latest
+          name: "MetFont (latest)"
+          files: font/MetFont.zip
+          make_latest: true
