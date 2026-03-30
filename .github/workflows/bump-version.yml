@@ -1,0 +1,74 @@
+name: Bump Version & Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'New version (e.g., 1.2.0). If omitted, version is read from font/VERSION.'
+        required: false
+        type: string
+      bump:
+        description: 'Bump type (ignored if version is provided)'
+        required: false
+        type: choice
+        default: 'patch'
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Determine version
+        id: version
+        run: |
+          CURRENT=$(cat font/VERSION | tr -d '[:space:]')
+
+          if [ -n "${{ inputs.version }}" ]; then
+            NEW="${{ inputs.version }}"
+          else
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+            case "${{ inputs.bump }}" in
+              major) ((MAJOR++)); MINOR=0; PATCH=0 ;;
+              minor) ((MINOR++)); PATCH=0 ;;
+              patch) ((PATCH++)) ;;
+            esac
+            NEW="${MAJOR}.${MINOR}.${PATCH}"
+          fi
+
+          echo "Current: $CURRENT → New: $NEW"
+          echo "version=$NEW" >> $GITHUB_OUTPUT
+          echo "current=$CURRENT" >> $GITHUB_OUTPUT
+
+      - name: Update VERSION file
+        run: |
+          echo "${{ steps.version.outputs.version }}" > font/VERSION
+
+      - name: Create annotated tag
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add font/VERSION
+          git commit -m "chore: bump version to ${{ steps.version.outputs.version }}"
+          git tag "v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}" HEAD
+
+      - name: Upload release info
+        uses: actions/upload-artifact@v4
+        with:
+          name: version-info
+          path: |
+            font/VERSION
+          retention-days: 1

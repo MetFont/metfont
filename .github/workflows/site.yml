@@ -2,9 +2,36 @@ name: Website
 
 on:
   pull_request:
+    paths:
+      - 'site/**'
+      - '.vitepress/**'
+      - '.github/workflows/site.yml'
+      # Also run when font files change (fonts must be rebuilt for site)
+      - 'src/**'
+      - 'helpers/**'
+      - 'vendor/**'
+      - 'data/**'
+      - 'font/VERSION'
+      - 'package.json'
+      - 'package-lock.json'
   push:
     branches: [main]
+    paths:
+      - 'site/**'
+      - '.vitepress/**'
+      - '.github/workflows/site.yml'
+      - 'src/**'
+      - 'helpers/**'
+      - 'vendor/**'
+      - 'data/**'
+      - 'font/VERSION'
+      - 'package.json'
+      - 'package-lock.json'
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -14,13 +41,13 @@ jobs:
         with:
           submodules: recursive
 
-      # --- Font build (only for main push / deployment) ---
+      # --- Python (always needed — for download fallback parsing and glyph data) ---
       - uses: actions/setup-python@v5
-        if: github.event_name != 'pull_request'
         with:
           python-version: '3.11'
           cache: pip
 
+      # --- Font build (main branch push / workflow dispatch) ---
       - name: Install font build dependencies
         if: github.event_name != 'pull_request'
         run: |
@@ -32,15 +59,32 @@ jobs:
         run: |
           python3 helpers/assign-codepoints.py
           python3 helpers/clean-sources.py
-          python3 helpers/normalize-svg.py \
-            --input-dir src/ \
-            --mapping data/codepoint-map.json \
-            --output-dir color/svg/
+          npm run prepare-fonts
           python3 helpers/generate-fonts.py ${{ github.ref_name }}
 
       - name: Copy fonts to site
         if: github.event_name != 'pull_request'
         run: npm run copy-fonts
+
+      # --- Download fonts from GitHub Release (future: separate font repo) ---
+      # For PRs: download from latest release if available, else build locally.
+      - name: Download fonts from latest release
+        if: github.event_name == 'pull_request'
+        run: |
+          set +e
+          chmod +x helpers/download-fonts-for-site.sh
+          if helpers/download-fonts-for-site.sh; then
+            echo "Fonts downloaded from release"
+          else
+            echo "No release found — building fonts locally"
+            sudo apt-get update && sudo apt-get install -y woff2 inkscape
+            pip install nanoemoji picosvg fonttools lxml
+            python3 helpers/assign-codepoints.py
+            python3 helpers/clean-sources.py
+            npm run prepare-fonts
+            python3 helpers/generate-fonts.py ${{ github.ref_name }}
+            npm run copy-fonts
+          fi
 
       # --- Site build (all triggers) ---
       - uses: actions/setup-node@v4

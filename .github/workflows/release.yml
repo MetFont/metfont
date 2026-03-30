@@ -3,6 +3,16 @@ name: Release
 on:
   push:
     tags: ['v*']
+    paths:
+      - 'src/**'
+      - 'helpers/**'
+      - 'vendor/**'
+      - 'data/**'
+      - 'font/VERSION'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/build.yml'
+      - '.github/workflows/release.yml'
   workflow_dispatch:
     inputs:
       version:
@@ -37,10 +47,7 @@ jobs:
         run: |
           python3 helpers/assign-codepoints.py
           python3 helpers/clean-sources.py
-          python3 helpers/normalize-svg.py \
-            --input-dir src/ \
-            --mapping data/codepoint-map.json \
-            --output-dir color/svg/
+          npm run prepare-fonts
           python3 helpers/generate-fonts.py ${{ github.ref_name }}
 
       - name: Create release archive

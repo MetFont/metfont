@@ -13,9 +13,8 @@ fi
 
 mkdir -p "$PUBLIC_DIR"
 
-cp -f "$FONT_DIR/MetFont-glyf/MetFont-glyf.woff2" "$PUBLIC_DIR/"
-cp -f "$FONT_DIR/MetFont-glyf/MetFont-glyf.ttf" "$PUBLIC_DIR/"
-cp -f "$FONT_DIR/MetFont-glyf_colr_1/MetFont-glyf_colr_1.ttf" "$PUBLIC_DIR/"
-cp -f "$FONT_DIR/MetFont-picosvgz/MetFont-picosvgz.ttf" "$PUBLIC_DIR/"
+cp -f "$FONT_DIR/MetFont-glyf/MetFont-glyf.woff2" "$PUBLIC_DIR/" || true
+cp -f "$FONT_DIR/MetFont-glyf/MetFont-glyf.ttf" "$PUBLIC_DIR/" || true
+cp -f "$FONT_DIR/MetFont-glyf_colr_1/MetFont-glyf_colr_1.ttf" "$PUBLIC_DIR/" || true
 
-echo "Copied 4 font files to $PUBLIC_DIR/"
+echo "Copied 3 font files to $PUBLIC_DIR/"

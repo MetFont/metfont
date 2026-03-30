@@ -1,4 +1,5 @@
 # Build outputs
+!font/VERSION
 font/
 build/
 src/

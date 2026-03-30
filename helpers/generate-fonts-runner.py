@@ -3,11 +3,14 @@
 Generate MetFont using nanoemoji.
 
 Usage:
-    python3 helpers/generate-fonts-runner.py <build_dir> <version>
+    python3 helpers/generate-fonts-runner.py <build_dir> <version> [methods_json]
 
 This script runs inside the repo directory (no Docker required for local dev).
+methods_json is optional JSON array string, e.g. '["glyf", "glyf_colr_1"]'.
+If omitted, builds all 6 formats.
 """
 import glob
+import json
 import os
 import shutil
 import subprocess
@@ -15,8 +18,10 @@ import sys
 
 BUILD_DIR = sys.argv[1] if len(sys.argv) > 1 else "build"
 VERSION = sys.argv[2] if len(sys.argv) > 2 else "dev"
+methods_arg = sys.argv[3] if len(sys.argv) > 3 else None
 
-METHODS = ["glyf", "glyf_colr_1", "cff_colr_1", "cff2_colr_1", "picosvg", "picosvgz"]
+ALL_METHODS = ["glyf", "glyf_colr_1", "cff_colr_1", "cff2_colr_1", "picosvg", "picosvgz"]
+METHODS = json.loads(methods_arg) if methods_arg else ALL_METHODS
 
 os.makedirs(BUILD_DIR, exist_ok=True)
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -31,6 +36,7 @@ if not svg_files:
     sys.exit(1)
 
 print(f"Found {len(svg_files)} SVG files in {color_dir}")
+print(f"Building formats: {METHODS}")
 
 for method in METHODS:
     print(f"\n=== Building {method} ===")
@@ -38,11 +44,9 @@ for method in METHODS:
     method_build_dir = os.path.join(BUILD_DIR, method)
     os.makedirs(method_build_dir, exist_ok=True)
 
-    # Determine output extension: CFF/SVG methods produce OTF, glyf produces TTF
     ext = ".otf" if method in ("cff_colr_1", "cff2_colr_1", "picosvg", "picosvgz") else ".ttf"
-    output_file = os.path.join(method_build_dir, f"MetFont-{method}{ext}")
+    output_file = f"MetFont-{method}{ext}"
 
-    # Use CLI flags instead of TOML — nanoemoji properly handles positional SVG args
     cmd = [
         "nanoemoji",
         "--build_dir", method_build_dir,
@@ -55,11 +59,7 @@ for method in METHODS:
         "--ignore_reuse_error",
     ] + svg_files
 
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-    )
+    result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"ERROR: nanoemoji failed for {method}")
         print(result.stderr)
@@ -73,7 +73,7 @@ for method in METHODS:
 
     # Post-process: inject name table via TTX
     ttx_path = os.path.join(repo_dir, "data", "MetFont.ttx")
-    font_in = output_file
+    font_in = os.path.join(method_build_dir, output_file)
     method_dir = os.path.join(fonts_dir, f"MetFont-{method}")
     os.makedirs(method_dir, exist_ok=True)
     font_out = os.path.join(method_dir, f"MetFont-{method}{ext}")
@@ -81,8 +81,7 @@ for method in METHODS:
     if os.path.exists(ttx_path):
         result = subprocess.run(
             ["ttx", "-m", font_in, "-o", font_out, ttx_path],
-            capture_output=True,
-            text=True,
+            capture_output=True, text=True,
         )
         if result.returncode != 0:
             print(f"  WARNING: TTX injection failed: {result.stderr}")
@@ -96,8 +95,7 @@ for method in METHODS:
     try:
         result = subprocess.run(
             ["woff2_compress", font_out],
-            capture_output=True,
-            text=True,
+            capture_output=True, text=True,
         )
         if result.returncode == 0:
             print(f"  WOFF2 compression OK")

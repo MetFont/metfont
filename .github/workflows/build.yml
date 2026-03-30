@@ -2,11 +2,68 @@ name: Build Fonts
 
 on:
   pull_request:
-  workflow_dispatch:
+    paths:
+      - 'src/**'
+      - 'helpers/**'
+      - 'vendor/**'
+      - 'data/**'
+      - 'font/VERSION'
+      - 'package.json'
+      - 'package-lock.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y inkscape
+
+      - name: Install Python dependencies
+        run: pip install nanoemoji picosvg fonttools lxml
+
+      - name: Assign codepoints
+        run: python3 helpers/assign-codepoints.py
+
+      - name: Clean upstream SVGs
+        run: python3 helpers/clean-sources.py
+
+      - name: Prepare font-ready SVGs
+        run: npm run prepare-fonts
+
+      - name: Upload prepared SVGs
+        uses: actions/upload-artifact@v4
+        with:
+          name: prepared-svgs
+          path: |
+            color/svg/
+            data/codepoint-map.json
+            data/icons.json
+          retention-days: 1
+
+  build-formats:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - format: ttf
+            methods: '["glyf", "glyf_colr_1"]'
+          - format: otf
+            methods: '["cff_colr_1", "cff2_colr_1"]'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,21 +80,73 @@ jobs:
       - name: Install Python dependencies
         run: pip install nanoemoji picosvg fonttools lxml
 
-      - name: Assign codepoints
-        run: python3 helpers/assign-codepoints.py
+      - name: Download prepared SVGs
+        uses: actions/download-artifact@v4
+        with:
+          name: prepared-svgs
+          path: .
 
-      - name: Clean upstream SVGs
-        run: python3 helpers/clean-sources.py
-
-      - name: Normalize font-ready SVGs
+      - name: Build ${{ matrix.format }} formats
         run: |
-          python3 helpers/normalize-svg.py \
-            --input-dir src/ \
-            --mapping data/codepoint-map.json \
-            --output-dir color/svg/
+          python3 helpers/generate-fonts-runner.py build "${{ github.ref_name }}" '${{ matrix.methods }}'
 
-      - name: Generate fonts
-        run: python3 helpers/generate-fonts.py ${{ github.ref_name }}
+      - name: Upload font artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fonts-${{ matrix.format }}
+          path: font/
+          retention-days: 1
+
+  # Separate job for woff2 compression (depends on both ttf and otf being done)
+  compress-woff2:
+    needs: build-formats
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y woff2
+
+      - name: Download font artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: fonts-*
+          path: font/
+          merge-multiple: true
+
+      - name: Re-compress all fonts as WOFF2
+        run: |
+          find font/ -type f \( -name '*.ttf' -o -name '*.otf' \) | while read f; do
+            woff2_compress "$f" && echo "Compressed: $f"
+          done
+
+      - name: Upload all fonts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fonts-all
+          path: font/
+          retention-days: 1
+
+  assemble:
+    needs: [build-formats, compress-woff2]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: fonts-*
+          path: font/
+          merge-multiple: true
+
+      - name: Verify artifacts
+        run: |
+          find font/ -type f \( -name '*.ttf' -o -name '*.woff2' \) | sort
 
       - name: Upload font artifacts
         uses: actions/upload-artifact@v4

@@ -58,15 +58,25 @@ def inkscape_available():
     ) == 0
 
 
-def combine_paths_inkscape(svg_bytes: bytes) -> bytes:
+def combine_paths_inkscape(svg_bytes: bytes, max_iterations: int = 10) -> bytes:
     """
     Run Inkscape headless to convert all shapes to paths and combine them.
 
-    Inkscape action sequence:
-      1. select-all             — select every object
-      2. object-stroke-to-path — convert strokes to filled outlines
-      3. object-to-path        — convert <circle>, <line>, <rect> primitives to <path>
-      4. path-combine          — merge all paths into a single compound path
+    Iterative per-group approach:
+      Phase 1: Convert primitives and strokes, flatten groups iteratively
+        - object-to-path          : convert <circle>, <line>, <rect>, <text> to <path>
+        - object-stroke-to-path   : convert stroke attributes to filled outlines (creates sub-groups)
+        - SelectionUnGroup:repeat : flatten those sub-groups back to parent level
+        Repeat Phase 1 until no new sub-groups are created (everything at root level)
+
+      Phase 2: Union all root-level filled paths
+        - SelectionUnion          : merge all paths into one compound path
+
+      Phase 3: Cleanup and export
+        - CleanEdges              : remove jagged edges from union
+        - FitCanvasToSelection   : resize canvas to content
+        - transform-scale:1       : normalize any scale transforms
+        - export-*               : export as plain SVG at 96dpi
 
     Returns the cleaned SVG bytes (Inkscape metadata removed).
     Raises subprocess.CalledProcessError if Inkscape fails.
@@ -77,19 +87,67 @@ def combine_paths_inkscape(svg_bytes: bytes) -> bytes:
 
         inp.write_bytes(svg_bytes)
 
+        # Phase 1: iterative flatten + convert
+        # Keep running until no new groups are created (everything at root level)
+        for _ in range(max_iterations):
+            result = subprocess.run(
+                [
+                    "inkscape",
+                    str(inp),
+                    "--actions=select-all:all;object-to-path;"
+                    "select-all:all;object-stroke-to-path;"
+                    "select-all:all;SelectionUnGroup:repeat",
+                    "--batch-process",
+                    "-o",
+                    str(inp),  # overwrite in-place
+                ],
+                capture_output=True,
+                text=True,
+                env={**subprocess.os.environ, "DISPLAY": ""},
+            )
+            if result.returncode != 0:
+                raise subprocess.CalledProcessError(
+                    result.returncode, result.args, result.stdout, result.stderr
+                )
+
+            # Check if inp still has groups (if no groups remain, phase 1 is done)
+            tree = etree.parse(str(inp))
+            groups = list(tree.iter("{http://www.w3.org/2000/svg}g"))
+            if not groups:
+                break
+
+        # Phase 2: union all root-level paths
         result = subprocess.run(
             [
                 "inkscape",
                 str(inp),
-                "--actions=select-all;object-stroke-to-path;object-to-path;path-union;path-combine",
+                "--actions=select-all:all;SelectionUnion",
                 "--batch-process",
                 "-o",
-                str(out),
+                str(inp),
             ],
             capture_output=True,
             text=True,
-            # Inkscape needs a display for some operations even in batch mode;
-            # fall back to a dummy display if none is set.
+            env={**subprocess.os.environ, "DISPLAY": ""},
+        )
+        if result.returncode != 0:
+            raise subprocess.CalledProcessError(
+                result.returncode, result.args, result.stdout, result.stderr
+            )
+
+        # Phase 3: cleanup and export
+        result = subprocess.run(
+            [
+                "inkscape",
+                str(inp),
+                "--actions=select-all:all;org.inkscape.effect.filter.CleanEdges;"
+                "FitCanvasToSelection;select-all:all;transform-scale:1;"
+                "export-plain-svg;export-dpi:96;export-area-drawing;export-area;"
+                "export-filename:" + str(out) + ";export-overwrite;export-do",
+                "--batch-process",
+            ],
+            capture_output=True,
+            text=True,
             env={**subprocess.os.environ, "DISPLAY": ""},
         )
         if result.returncode != 0:
