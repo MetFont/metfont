@@ -1,0 +1,117 @@
+= MetFont {VERSION}
+
+541 WMO/ICAO meteorological symbols in Unicode PUA (U+E000–U+E7FF).
+Font developed by Ribose. Symbols from OGC MetOcean DWG.
+
+License: Creative Commons Attribution 3.0 Unported
+https://creativecommons.org/licenses/by/3.0/
+
+== Package Contents
+
+ MetFont/
+ ├── MetFont-glyf/                   Monochrome TrueType
+ │   ├── MetFont-glyf.ttf
+ │   └── MetFont-glyf.woff2
+ ├── MetFont-glyf_colr_1/            COLRv1 color (TTF outlines)
+ │   ├── MetFont-glyf_colr_1.ttf
+ │   └── MetFont-glyf_colr_1.woff2
+ ├── MetFont-cff_colr_1/             COLRv1 color (CFF outlines)
+ │   ├── MetFont-cff_colr_1.ttf
+ │   └── MetFont-cff_colr_1.woff2
+ ├── MetFont-cff2_colr_1/            COLRv2 color (CFF2 outlines)
+ │   ├── MetFont-cff2_colr_1.ttf
+ │   └── MetFont-cff2_colr_1.woff2
+ ├── MetFont-picosvgz/               Embedded SVG table
+ │   ├── MetFont-picosvgz.ttf
+ │   └── MetFont-picosvgz.woff2
+ ├── metadata.json                   Glyph catalog, WMO metadata, plane info
+ └── README.adoc                     This file
+
+== Font Formats
+
+[cols="1,1,3"]
+|===
+| Format | File | Description
+
+| WOFF2 | `MetFont-glyf.woff2` | Monochrome TrueType, Brotli-compressed. Best for production web.
+| TTF | `MetFont-glyf.ttf` | Monochrome TrueType outlines. Desktop and universal compatibility.
+| COLRv1 TTF | `MetFont-glyf_colr_1.ttf` | COLRv1 + CPAL color layers. Chrome, Edge, modern browsers.
+| COLRv1 OTF | `MetFont-cff_colr_1.ttf` | CFF outlines with COLRv1 color. OTF-native environments.
+| COLRv2 OTF | `MetFont-cff2_colr_1.ttf` | CFF2 outlines with COLRv1 color. Next-gen OTF color rendering.
+| SVG TTF | `MetFont-picosvgz.ttf` | Embedded SVG table. Safari, Firefox, max fidelity.
+|===
+
+== metadata.json Schema
+
+The `metadata.json` file is the single source of truth for glyph data. It has four top-level keys:
+
+[source,json]
+----
+{
+  "version": "1.0.0",
+  "glyphs": [ ... ],
+  "metadata": { ... },
+  "planes": { ... }
+}
+----
+
+=== `version` (string)
+
+Font package version. Corresponds to the GitHub Release tag (e.g. `"1.0.0"` → tag `v1.0.0`).
+
+=== `glyphs` (array)
+
+Sorted by codepoint. Each entry:
+
+[source,json]
+----
+{
+  "codepoint": "0xE000",
+  "unicode": "U+E000",
+  "dec": 57344,
+  "name": "Cirrus (fibrous)",
+  "category": "CH_CloudHigh",
+  "categoryLabel": "Cloud High (CH)",
+  "plane": "sky-cloud",
+  "sourcePath": "symbols/CH_CloudHigh/WeatherSymbol_WMO_CloudHigh_CH_1.svg",
+  "version": "2023-12-07",
+  "status": "Valid"
+}
+----
+
+|===
+| Field | Type | Description
+
+| `codepoint` | string | Hex codepoint, e.g. `"0xE000"`
+| `unicode` | string | Unicode notation, e.g. `"U+E000"`
+| `dec` | number | Decimal codepoint, e.g. `57344`
+| `name` | string | Human-readable symbol name
+| `category` | string | WMO category directory, e.g. `"CH_CloudHigh"`
+| `categoryLabel` | string | Display label, e.g. `"Cloud High (CH)"`
+| `plane` | string | Semantic block slug, e.g. `"sky-cloud"`
+| `sourcePath` | string | Path relative to upstream `vendor/WorldWeatherSymbols/`
+| `version` | string | Upstream SVG version from Dublin Core metadata
+| `status` | string | Upstream status from Dublin Core (e.g. `"Valid"`)
+|===
+
+=== `metadata` (object)
+
+Keyed by Unicode notation (e.g. `"U+E000"`). Each value is the full Dublin Core
+metadata extracted from the upstream WMO SVG, including `title`, `creator`,
+`description`, `version`, `status`, `license`, `subject`, etc.
+
+=== `planes` (object)
+
+Keyed by plane slug (e.g. `"sky-cloud"`). Each value contains:
+
+|===
+| Field | Type | Description
+
+| `name` | string | Display name, e.g. `"Sky & Cloud"`
+| `slug` | string | URL-safe identifier
+| `blockStart` | string | Hex start of PUA block, e.g. `"0xE000"`
+| `blockEnd` | string | Hex end of PUA block
+| `count` | number | Glyph count in this plane
+| `description` | string | Human-readable description of the plane
+| `subCategories` | array | List of WMO sub-category objects
+|===

@@ -15,6 +15,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
 
 BUILD_DIR = sys.argv[1] if len(sys.argv) > 1 else "build"
 VERSION = sys.argv[2] if len(sys.argv) > 2 else "dev"
@@ -79,10 +80,23 @@ for method in METHODS:
     font_out = os.path.join(method_dir, f"MetFont-{method}{ext}")
 
     if os.path.exists(ttx_path):
+        # Template version into nameID 5 before merging
+        with open(ttx_path) as f:
+            ttx_content = f.read()
+        version_str = f"Version {VERSION}"
+        ttx_content = ttx_content.replace(
+            '<namerecord nameID="5" platformID="3" platEncID="1" langID="0x409"></namerecord>',
+            f'<namerecord nameID="5" platformID="3" platEncID="1" langID="0x409">{version_str}</namerecord>',
+        )
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.ttx', delete=False, dir=method_build_dir) as tmp:
+            tmp.write(ttx_content)
+            tmp_ttx_path = tmp.name
+
         result = subprocess.run(
-            ["ttx", "-m", font_in, "-o", font_out, ttx_path],
+            ["ttx", "-m", font_in, "-o", font_out, tmp_ttx_path],
             capture_output=True, text=True,
         )
+        os.unlink(tmp_ttx_path)
         if result.returncode != 0:
             print(f"  WARNING: TTX injection failed: {result.stderr}")
             shutil.copy2(font_in, font_out)
