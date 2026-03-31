@@ -204,6 +204,50 @@ npm run generate-fonts     # Step 3: Build fonts → font/
 npm run dev                # Step 4: Copy fonts + regenerate data + start dev server
 ----
 
+== Creating a Release
+
+Releases are automated via GitHub Actions. Every push to `main` triggers the
+`Build Fonts` workflow, which runs the full pipeline and creates a GitHub
+Release if the version in `font/VERSION` has changed.
+
+=== Steps to cut a release
+
+[source,bash]
+----
+# 1. Sync the submodule to the latest upstream WorldWeatherSymbols
+git submodule update --remote vendor/WorldWeatherSymbols
+git add vendor/WorldWeatherSymbols
+git commit -m "chore: update symbols"
+
+# 2. Bump the version in font/VERSION (e.g., 1.0.0 → 1.0.1)
+echo 1.0.1 > font/VERSION
+git add font/VERSION
+git commit -m "chore: bump version to 1.0.1"
+
+# 3. Push to main — CI builds and publishes the release automatically
+git push origin main
+----
+
+The CI pipeline:
+
+. `prepare` — assigns codepoints, cleans upstream SVGs, normalizes to `color/svg/`
+. `build-formats` — generates TTF/OTF font binaries via nanoemoji
+. `compress-woff2` — compresses all fonts to WOFF2
+. `assemble` — generates `metadata.json`, creates `README.adoc`, packages everything
+. `release` — creates a GitHub Release at `https://github.com/MetFont/metfont/releases`
+
+The release artifact is `MetFont-v{VERSION}.zip` containing all font formats,
+`metadata.json`, and `README.adoc`.
+
+The website at https://metfont.github.io automatically picks up the new release
+on its next CI run (it downloads `releases/latest` at build time).
+
+=== Version format
+
+`font/VERSION` must be a semantic version string such as `1.0.0` or `1.2.3`.
+The CI converts it to nanoemoji's `001.000.000` format for the font binary's
+name table, and uses the raw value for the GitHub Release tag and zip filename.
+
 == Repository Structure
 
 [cols="1,3"]
